@@ -1,6 +1,6 @@
 {
   "name": "mcebrian.com",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Blogging, portfolio, and resume site for Michael Cebrian",
   "main": "start.js",
   "scripts": {
@@ -18,12 +18,14 @@
     "gulp-csso": "^1.0.0",
     "gulp-jshint": "^1.11.2",
     "gulp-less": "^3.0.3",
-    "gulp-uglify": "^1.2.0"
+    "gulp-uglify": "^1.2.0",
+    "wiredep": "^3.0.0-beta"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "morgan": "^1.6.1",
     "serve-favicon": "^2.3.0"
-  }
+  },
+  "private": true
 }

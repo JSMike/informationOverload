@@ -1,0 +1,11 @@
+# Ignore Node, Bower & TSD
+node_modules/
+src/client/lib/
+typings/
+
+# Ignore OS Generated Files
+.DS_Store*
+Thumbs.db
+
+# Build Directory
+dist/

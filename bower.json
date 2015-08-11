@@ -1,0 +1,34 @@
+{
+  "name": "mcebrian.com",
+  "version": "0.0.1",
+  "description": "Blogging, portfolio, and resume site for Michael Cebrian",
+  "authors": [
+    "Michael Cebrian <mcebri01@villanova.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "http://mcebrian.com",
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-animate": "~1.4.4",
+    "angular-cookies": "~1.4.4",
+    "angular-material": "~0.10.1",
+    "angular-touch": "~1.4.4",
+    "angular-ui-router": "~0.2.15",
+    "animate.css": "~3.3.0",
+    "fontawesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "moment": "~2.10.6",
+    "toastr": "~2.1.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.4",
+    "bardjs": "~0.1.5",
+    "sinon": "~1.12.2"
+  },
+  "resolutions": {
+    "angular": "~1.4.4",
+    "jquery": "~2.1.4",
+    "sinon": "~1.12.2"
+  },
+  "private": true
+}
