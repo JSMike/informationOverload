@@ -1,17 +1,14 @@
 'use strict';
 
 var gulp = require('gulp');
-var wrench = require('wrench');
+var glob = require('glob');
 
 /**
  * Load each gulp module from the gulp directory
  */
-wrench.readdirSyncRecursive('./gulp').filter(function(file) {
-  return (/\.(js|coffee)$/i).test(file);
-}).map(function(file) {
-  require('./gulp/' + file);
+glob.sync('gulp/*.js').forEach(funtion (file) {
+   require(file);
 });
-
 
 /**
  *  Declare default task, clean temporary files and build
