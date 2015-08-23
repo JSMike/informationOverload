@@ -1,6 +1,6 @@
 # Ignore Node, Bower & TSD
 node_modules/
-src/client/lib/
+clientDev/lib/
 typings/
 
 # Ignore OS Generated Files
@@ -8,4 +8,4 @@ typings/
 Thumbs.db
 
 # Build Directory
-dist/
+clientDist/

@@ -1,12 +1,13 @@
 'use strict';
 
 var gulp = require('gulp');
-var glob = require('glob');
+var glob = require('glob-array');
+var config = require('./gulp/conf');
 
 /**
  * Load each gulp module from the gulp directory
  */
-glob.sync('gulp/*.js').forEach(funtion (file) {
+glob.sync(config.glob, config.globOptions).forEach(function (file) {
    require(file);
 });
 
