@@ -5,9 +5,11 @@ module.exports = {
   glob: ['./gulp/*.js'],
   globOptions: {ignore: './gulp/conf.js'},
   jsFiles: ['clientDev/app/**/*.js', 'server/**/*.js'],
-  htmlFiles: ['clientDev/index.html', 'clientDev/app/**/*.html'],
+  htmlFiles: ['clientDev/**/*.html', '!clientDev/lib/**/*.html'],
   lessFiles: ['clientDev/css/**/*.less'],
   cssDev: 'clientDev/css',
   cssDist: 'clientDist/css',
-  jsDist: 'clientDist/app'
+  jsDist: 'clientDist/app',
+  imgFiles: 'clientDev/img/**/*.*',
+  imgDist: 'clientDist/img'
 };
