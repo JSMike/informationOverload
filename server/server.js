@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var routing = require('./routing');
 var app = express();
 var router = express.Router();
-var port = process.env.port || 80;
+var port = process.env.PORT || 80;
 var env = process.env.NODE_ENV || 'dev';
 var staticPath = env === 'dev' ? '../clientDev' : '../clientDist';
 var morganEnv = env === 'dev' ? 'dev' : 'combined';

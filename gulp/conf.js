@@ -11,5 +11,14 @@ module.exports = {
   cssDist: 'clientDist/css',
   jsDist: 'clientDist/app',
   imgFiles: 'clientDev/img/**/*.*',
-  imgDist: 'clientDist/img'
+  imgDist: 'clientDist/img',
+  nodemon: {
+      script: 'server/server.js',
+      delayTime: 1,
+      env: {
+          'PORT': 80,
+          'NODE_ENV': 'dist'
+      },
+      watch: ['server/**/*.js']
+  }
 };
