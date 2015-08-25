@@ -14,6 +14,4 @@ glob.sync(config.glob, config.globOptions).forEach(function (file) {
 /**
  *  Declare default task, clean temporary files and build
  */
-gulp.task('default', ['clean'], function () {
-  gulp.start('build');
-});
+gulp.task('default', ['server']);

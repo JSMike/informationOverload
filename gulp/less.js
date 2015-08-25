@@ -9,9 +9,9 @@ var less = require('gulp-less');
 var plumber = require('gulp-plumber');
 var prefix = require('gulp-autoprefixer');
 var util = require('gulp-util');
-var csso = require('gulp-csso')
+var csso = require('gulp-csso');
 
-gulp.task('less', function (done) {
+gulp.task('less', ['clean:css'], function () {
     gulp.src(conf.lessFiles)
         .pipe(less())
         .pipe(plumber())
@@ -20,6 +20,3 @@ gulp.task('less', function (done) {
         .pipe(csso())
         .pipe(gulp.dest(conf.cssDist));
 });
-
-
-

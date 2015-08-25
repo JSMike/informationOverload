@@ -1,23 +1,26 @@
 var gulp = require('gulp');
 var path = require('path');
 var nodemon = require('gulp-nodemon');
-var chalk = require('chalk');
+var util = require('gulp-util');
 var conf = require('./conf');
 
-gulp.task('server', ['less', 'minify:js', 'minify:html', 'minify:img'], function () {
-    nodemon(conf.nodemon)
-        .on('restart', function(files) {
-            log(chalk.yellow('nodemon restarted'));
-            log(chalk.blue('files changed:\n' + files));
+gulp.task('server', ['watch'], function () {
+    return nodemon(conf.nodemon)
+        .on('restart', function (files) {
+            util.log(util.colors.green('nodemon restarted'));
+            util.log(util.colors.gray('files changed:\n' + files));
         })
         .on('start', function () {
-            log(chalk.green('nodemon started'));
+            util.log(util.colors.green('nodemon started'));
         })
         .on('crash', function (err) {
-            log(chalk.red('nodemon crashed:\n' + err));
+            util.log(util.colors.red('nodemon crashed:\n' + err));
         })
         .on('exit', function () {
-            log(chalk.purple('nodemon exited cleanly'));
+            util.log(util.colors.magenta('nodemon exited cleanly'));
         });
-    gulp.start('watch');
+});
+
+gulp.task('do:nothing', function (done) {
+    done();
 });

@@ -1,6 +1,6 @@
 # Ignore Node, Bower & TSD
 node_modules/
-clientDev/lib/
+bower_components/
 typings/
 
 # Ignore OS Generated Files

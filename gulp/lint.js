@@ -5,7 +5,14 @@ var path = require('path');
 var conf = require('./conf');
 
 gulp.task('lint', function () {
-    return gulp.src(conf.jsFiles)
+    gulp.src(conf.jsFiles)
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish', {verbose: true}))
+        .pipe(jscs());
+});
+
+gulp.task('lint:server', function () {
+    gulp.src(conf.jsFiles[1])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish', {verbose: true}))
         .pipe(jscs());
