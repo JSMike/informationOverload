@@ -2,7 +2,7 @@ var path = require('path');
 module.exports = {
   devPath: path.join(process.cwd(), '/clientDev'),
   distPath: path.join(process.cwd(), '/clientDist'),
-  glob: ['./gulp/*.js'],
+  gulpFiles: ['./gulp/*.js'],
   globOptions: {ignore: './gulp/conf.js'},
   jsFiles: ['clientDev/app/**/*.js', 'server/**/*.js', 'gulp/**/*.js'],
   htmlFiles: ['clientDev/**/*.html', '!clientDev/lib/**/*.html'],

@@ -21,6 +21,3 @@ gulp.task('server', ['watch'], function () {
         });
 });
 
-gulp.task('do:nothing', function (done) {
-    done();
-});

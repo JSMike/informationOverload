@@ -7,7 +7,7 @@ var config = require('./gulp/conf');
 /**
  * Load each gulp module from the gulp directory
  */
-glob.sync(config.glob, config.globOptions).forEach(function (file) {
+glob.sync(config.gulpFiles, config.globOptions).forEach(function (file) {
    require(file);
 });
 

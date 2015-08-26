@@ -10,10 +10,3 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter('jshint-stylish', {verbose: true}))
         .pipe(jscs());
 });
-
-gulp.task('lint:server', function () {
-    gulp.src(conf.jsFiles[1])
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish', {verbose: true}))
-        .pipe(jscs());
-});
