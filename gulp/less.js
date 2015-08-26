@@ -12,7 +12,7 @@ var util = require('gulp-util');
 var csso = require('gulp-csso');
 
 gulp.task('less', ['clean:css'], function () {
-    gulp.src(conf.lessFiles)
+    return gulp.src(conf.lessFiles)
         .pipe(less())
         .pipe(plumber())
         .pipe(prefix({browsers: 'last 2 version'}))

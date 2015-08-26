@@ -1,4 +1,3 @@
-/*jshint node:true*/
 'use strict';
 
 var express = require('express');
@@ -17,7 +16,7 @@ app.use(morgan(morganEnv)); // Sets logging level
 app.use(bodyParser.json()); // Parse post request as JSON
 app.use(bodyParser.json({type: 'application/vnd.api+json'})); // Use JSON API spec
 app.use(express.static(staticPath)); // Set hosted path
-app.use('/lib', express.static(path.join(process.cwd(), 'bower_components')));
+app.use('/bower_components', express.static(path.join(process.cwd(), 'bower_components')));
 app.use('/', router); // Attach router to the base URL
 routing(router, staticPath); // Add routing
 

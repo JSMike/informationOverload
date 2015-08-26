@@ -12,9 +12,7 @@ gulp.task('clean:js', function (done) {
 });
 
 gulp.task('clean:html', function (done) {
-    clean(conf.htmlFiles.map(function (cv) {
-        return cv.replace('clientDev', 'clientDist');
-    }), done);
+    clean(conf.htmlFiles.replace('clientDev', 'clientDist'), done);
 });
 
 gulp.task('clean:img', function (done) {
