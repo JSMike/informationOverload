@@ -1,4 +1,4 @@
 (function (angular, undefined) {
-    'use strict';
-    angular.module('mcApp', ['mcCore', 'mcRes', 'mcBlog', 'mcPort']);
+    "use strict";
+    angular.module("mcApp", ["mcCore", "mcRes", "mcBlog", "mcPort"]);
 })(angular);

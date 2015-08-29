@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-var gulp = require('gulp');
-var path = require('path');
-var conf = require('./conf');
+var gulp = require("gulp");
+var path = require("path");
+var conf = require("./conf");
 
-gulp.task('test', function (done) {
+gulp.task("test", function (done) {
     done();
 });
