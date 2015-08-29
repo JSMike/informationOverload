@@ -10,7 +10,7 @@ gulp.task('clean:css', function (done) {
 });
 
 gulp.task('clean:js', function (done) {
-    clean(conf.jsFiles[0].replace('clientDev','clientDist'), done);
+    clean(conf.jsFiles[0].replace('clientDev', 'clientDist'), done);
 });
 
 gulp.task('clean:html', function (done) {

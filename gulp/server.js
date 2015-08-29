@@ -22,4 +22,3 @@ gulp.task('server', ['watch'], function () {
             util.log(util.colors.magenta('nodemon exited cleanly'));
         });
 });
-

@@ -1,5 +1,16 @@
 {
     "preset": "yandex",
     "requireCommaBeforeLineBreak": null,
-    "validateLineBreaks": null
+    "validateLineBreaks": null,
+    "disallowQuotedKeysInObjects": null,
+    "requireLineFeedAtFileEnd": true,
+    "disallowImplicitTypeConversion": [
+        "numeric",
+        "boolean",
+        "binary",
+        "string"
+    ],
+    "disallowSpacesInsideArrayBrackets": true,
+    "requireDotNotation": true,
+    "disallowSpacesInsideObjectBrackets": true
 }
