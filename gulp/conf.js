@@ -1,3 +1,5 @@
+'use strict';
+
 var path = require('path');
 module.exports = {
     devPath: path.join(process.cwd(), '/clientDev'),
@@ -18,8 +20,8 @@ module.exports = {
         delayTime: 1,
         watch: ['server/**/*.js'],
         env: {
-            'PORT': 3000,
-            'NODE_ENV': 'dist'
+            "PORT": 3000,
+            "NODE_ENV": 'dist'
         }
     },
     wiredep: {

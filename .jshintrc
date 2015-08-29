@@ -1,0 +1,10 @@
+{
+    "strict": true,
+    "node": true,
+    "globals": {
+        "require": true,
+        "module": true,
+        "process": true,
+        "console": true
+    }
+}

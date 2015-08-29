@@ -1,3 +1,5 @@
 {
-    "preset": "yandex"
+    "preset": "yandex",
+    "requireCommaBeforeLineBreak": null,
+    "validateLineBreaks": null
 }
