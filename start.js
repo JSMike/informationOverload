@@ -3,5 +3,5 @@ var gulp = require("gulp");
 var run = require("run-sequence").use("gulp");
 var tasks = process.argv.splice(2, Number.MAX_VALUE);
 
-task = task.length > 0 ? tasks : "default";
+tasks = tasks.length > 0 ? tasks : "default";
 run(tasks);
