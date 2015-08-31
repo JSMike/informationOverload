@@ -5,8 +5,7 @@ var util = require("gulp-util");
 var jshint = require("gulp-jshint");
 var jscs = require("gulp-jscs");
 var stylish = require("gulp-jscs-stylish");
-var path = require("path");
-var conf = require("./conf");
+var conf = require("../gulp.config");
 
 gulp.task("lint", function () {
     return gulp.src(conf.jsFiles)

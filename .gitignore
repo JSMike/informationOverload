@@ -7,5 +7,5 @@ typings/
 .DS_Store*
 Thumbs.db
 
-# Build Directory
-clientDist/
+# Ignore Build Directory
+build/

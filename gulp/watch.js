@@ -2,8 +2,7 @@
 
 var gulp = require("gulp");
 var run = require("run-sequence").use(gulp);
-var path = require("path");
-var conf = require("./conf");
+var conf = require("../gulp.config");
 
 gulp.task("watch", ["build"], function () {
     gulp.watch(conf.jsFiles, function (evt) {

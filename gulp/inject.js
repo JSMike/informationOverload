@@ -4,7 +4,7 @@ var gulp = require("gulp");
 var path = require("path");
 var wiredep = require("wiredep").stream;
 var inject = require("gulp-inject");
-var conf = require("./conf");
+var conf = require("../gulp.config");
 
 gulp.task("inject", ["less"], function () {
     return gulp.src(path.join(conf.devPath, "index.html"))

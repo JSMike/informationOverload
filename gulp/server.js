@@ -1,10 +1,8 @@
 "use strict";
 
 var gulp = require("gulp");
-var path = require("path");
 var nodemon = require("gulp-nodemon");
-var util = require("gulp-util");
-var conf = require("./conf");
+var conf = require("../gulp.config");
 
 gulp.task("server", ["watch"], function () {
     return nodemon(conf.nodemon)

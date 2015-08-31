@@ -1,15 +1,11 @@
 "use strict";
 
 var gulp = require("gulp");
-var glob = require("glob-array");
-var wiredep = require("wiredep").stream;
-var _ = require("lodash");
-var conf = require("./conf");
 var less = require("gulp-less");
 var plumber = require("gulp-plumber");
 var prefix = require("gulp-autoprefixer");
-var util = require("gulp-util");
 var csso = require("gulp-csso");
+var conf = require("../gulp.config");
 
 gulp.task("less", ["clean:css"], function () {
     return gulp.src(conf.lessFiles)

@@ -1,11 +1,10 @@
 "use strict";
 
 var gulp = require("gulp");
-var path = require("path");
-var conf = require("./conf");
 var uglify = require("gulp-uglify");
 var minHTML = require("gulp-minify-html");
 var imgMin = require("gulp-imagemin");
+var conf = require("../gulp.config");
 
 gulp.task("minify:js", ["clean:js"], function () {
     return gulp.src(conf.jsFiles[0])
