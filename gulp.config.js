@@ -5,7 +5,6 @@ module.exports = {
     devPath: path.join(process.cwd(), "/client"),
     distPath: path.join(process.cwd(), "/build"),
     gulpFiles: ["./gulp/*.js"],
-    globOptions: {ignore: "./gulp/conf.js"},
     jsFiles: ["client/app/**/*.js", "server/**/*.js", "gulp/**/*.js"],
     htmlFiles: "client/**/*.html",
     lessFiles: ["client/css/**/*.less"],
