@@ -1,9 +1,61 @@
 {
-    "preset": "yandex",
-    "validateLineBreaks": null,
-    "disallowQuotedKeysInObjects": null,
-    "validateQuoteMarks": {
-        "mark": "\"",
-        "escape": true
-    }
+	"disallowEmptyBlocks" : true,
+	"disallowImplicitTypeConversion" : ["numeric", "boolean", "binary", "string"],
+	"disallowKeywords" : ["with"],
+	"disallowKeywordsOnNewLine" : ["else", "catch"],
+	"disallowMixedSpacesAndTabs" : true,
+	"disallowMultipleLineBreaks" : true,
+	"disallowMultipleLineStrings" : true,
+	"disallowMultipleVarDecl" : true,
+	"disallowSpaceAfterObjectKeys" : true,
+	"disallowSpaceAfterPrefixUnaryOperators" : true,
+	"disallowSpaceBeforeBinaryOperators" : [","],
+	"disallowSpaceBeforePostfixUnaryOperators" : ["++", "--"],
+	"disallowSpacesInFunctionDeclaration" : {
+		"beforeOpeningRoundBrace" : true
+	},
+	"disallowSpacesInNamedFunctionExpression" : {
+		"beforeOpeningRoundBrace" : true
+	},
+	"disallowSpacesInsideArrayBrackets" : true,
+	"disallowSpacesInsideObjectBrackets" : true,
+	"disallowSpacesInsideParentheses" : true,
+	"disallowTrailingWhitespace" : true,
+	"disallowYodaConditions" : true,
+	"maximumLineLength" : {
+		"value" : 120,
+		"allExcept" : ["comments", "regex", "urlComments"]
+	},
+	"requireCommaBeforeLineBreak" : true,
+	"requireCurlyBraces" : ["if", "else", "for", "while", "do", "try", "catch"],
+	"requireDotNotation" : true,
+	"requireLineFeedAtFileEnd" : true,
+	"requireParenthesesAroundIIFE" : true,
+	"requireSemicolons" : true,
+	"requireSpaceAfterBinaryOperators" : true,
+	"requireSpaceAfterKeywords" : ["if", "else", "for", "while", "do", "switch", "return", "try", "catch"],
+	"requireSpaceAfterLineComment" : true,
+	"requireSpaceBeforeBinaryOperators" : true,
+	"requireSpaceBetweenArguments" : true,
+	"requireSpacesInAnonymousFunctionExpression" : {
+		"beforeOpeningRoundBrace" : true,
+		"beforeOpeningCurlyBrace" : true
+	},
+	"requireSpacesInConditionalExpression" : {
+		"afterTest" : true,
+		"beforeConsequent" : true,
+		"afterConsequent" : true,
+		"beforeAlternate" : true
+	},
+	"requireSpacesInFunctionDeclaration" : {
+		"beforeOpeningCurlyBrace" : true
+	},
+	"requireSpacesInNamedFunctionExpression" : {
+		"beforeOpeningCurlyBrace" : true
+	},
+	"validateIndentation" : 4,
+	"validateQuoteMarks" : {
+		"mark" : "\"",
+		"escape" : true
+	}
 }
