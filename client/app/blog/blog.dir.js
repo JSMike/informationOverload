@@ -1,5 +1,14 @@
 (function (angular, undefined) {
     "use strict";
-    var dir = angular.module("mcBlog.dir", []);
+    var blog = angular.module("mcBlog");
+
+    blog.directive("mcBlog.banner", [function () {
+        return {
+            restrict: "E",
+            replace: true,
+            scope: false,
+            templateUrl: "app/blog/blog.html"
+        };
+    }]);
 
 })(angular);

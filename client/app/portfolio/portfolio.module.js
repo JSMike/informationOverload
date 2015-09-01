@@ -1,4 +1,4 @@
 (function (angular, undefined) {
     "use strict";
-    var port = angular.module("mcPort", ["mcPort.dir", "mcPort.ctrl"]);
+    var port = angular.module("mcPort", ["ui.router"]);
 })(angular);

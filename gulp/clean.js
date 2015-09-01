@@ -9,7 +9,7 @@ gulp.task("clean:css", function (done) {
 });
 
 gulp.task("clean:js", function (done) {
-    clean(conf.jsFiles[0].replace("client", "build"), done);
+    clean(conf.jsFiles.build, done);
 });
 
 gulp.task("clean:html", function (done) {

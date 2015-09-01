@@ -8,7 +8,7 @@ var stylish = require("gulp-jscs-stylish");
 var conf = require("../gulp.config");
 
 gulp.task("lint", function () {
-    return gulp.src(conf.jsFiles)
+    return gulp.src(conf.jsFiles.watch)
         .pipe(jshint())
         .pipe(jscs())
         .on("error", util.noop)

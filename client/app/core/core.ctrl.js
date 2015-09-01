@@ -1,5 +1,9 @@
 (function (angular, undefined) {
     "use strict";
-    var ctrl = angular.module("mcCore.ctrl", []);
+    var core = angular.module("mcCore");
+
+    core.controller("mcCore.ctrl", ["$state", function ($state) {
+
+    }]);
 
 })(angular);

@@ -1,9 +1,9 @@
 (function (angular, undefined) {
     "use strict";
-    var router = angular.module("mcCore.router", ["ui.router"]);
+    var core = angular.module("mcCore");
 
-    router.config(["$stateProvider", "$urlRouterProvider"], function ($stateProvider, $urlRouterProvider) {
+    core.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
         // For all unmatched url, redirect to /
         $urlRouterProvider.otherwise("/");
-    });
+    }]);
 })(angular);

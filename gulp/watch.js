@@ -5,7 +5,7 @@ var run = require("run-sequence").use(gulp);
 var conf = require("../gulp.config");
 
 gulp.task("watch", ["build"], function () {
-    gulp.watch(conf.jsFiles, function (evt) {
+    gulp.watch(conf.jsFiles.watch, function (evt) {
         var tasks = ["lint"];
         if (evt in {"added":1, "deleted":1}) {
             tasks.push("inject");

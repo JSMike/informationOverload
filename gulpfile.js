@@ -12,8 +12,9 @@ process.chdir(__dirname);
 /**
  * Load each gulp module from the gulp directory
  */
-glob.sync(config.gulpFiles).forEach(function (file) {
-   require(file);
+glob.sync([config.jsFiles.gulp[0]]).forEach(function (file) {
+    console.log(file);
+    require(file);
 });
 
 /**

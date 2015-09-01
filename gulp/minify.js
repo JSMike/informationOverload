@@ -7,7 +7,7 @@ var imgMin = require("gulp-imagemin");
 var conf = require("../gulp.config");
 
 gulp.task("minify:js", ["clean:js"], function () {
-    return gulp.src(conf.jsFiles[0])
+    return gulp.src(conf.jsFiles.app)
         .pipe(uglify())
         .pipe(gulp.dest(conf.jsDist));
 });

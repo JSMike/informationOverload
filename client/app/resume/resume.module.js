@@ -1,4 +1,4 @@
 (function (angular, undefined) {
     "use strict";
-    var res = angular.module("mcRes", ["mcRes.dir", "mcRes.ctrl"]);
+    var res = angular.module("mcRes", ["ui.router"]);
 })(angular);

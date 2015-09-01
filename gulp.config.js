@@ -4,8 +4,20 @@ var path = require("path");
 module.exports = {
     devPath: path.join(process.cwd(), "/client"),
     distPath: path.join(process.cwd(), "/build"),
-    gulpFiles: ["./gulp/*.js"],
-    jsFiles: ["client/app/**/*.js", "server/**/*.js", "gulp/**/*.js"],
+    gulpFiles: ["gulp/*.js"],
+    jsFiles: {
+        modules: ["client/app/app.js","client/app/**/*.module.js"],
+        controllers: ["client/app/**/*.ctrl.js"],
+        directives: ["client/app/**/*.dir.js"],
+        routers: ["client/app/**/*.router.js"],
+        apptests: ["client/app/**/*.spec.js"],
+        server: ["server/**/*.js", "!server/**/*.spec.js"],
+        servertests: ["server/**/*.spec.js"],
+        gulp: ["./gulp/**/*.js", "./gulpfile.js", "./gulp.config.js"],
+        build: ["build/**/*.js"],
+        watch: ["gulp.config.js", "gulpfile.js", "client/app/**/*.js", "server/**/*.js", "gulp/**/*.js"],
+        app: ["client/app/**/*.js"]
+    },
     htmlFiles: "client/**/*.html",
     lessFiles: ["client/css/**/*.less"],
     cssDev: "client/css",
@@ -61,7 +73,11 @@ module.exports = {
                 filePath = filePath.join("/");
                 return '<link rel="stylesheet" href="' + filePath + '"/>';
             }
-        }
+        },
+        app: ["client/app/app.js"],
+        modules: ["client/app/**/*.module.js"],
+        other: ["client/app/**/*.js", "!client/app/app.js", "!client/app/**/*.module.js", "!client/app/**/*.spec.js"],
+        cssFiles: ["client/css/**/*.css"]
 
     }
 };
