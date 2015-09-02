@@ -2,12 +2,21 @@
     "use strict";
     var core = angular.module("mcCore");
 
-    core.directive("mcCore.banner", [function () {
+    core.directive("navbar", [function () {
         return {
             restrict: "E",
             replace: true,
             scope: false,
-            templateUrl: "app/core/core.html"
+            templateUrl: "app/core/templates/navbar.html"
+        };
+    }]);
+
+    core.directive("footer", [function () {
+        return {
+            restrict: "E",
+            replace: true,
+            scope: false,
+            templateUrl: "app/core/templates/footer.html"
         };
     }]);
 
