@@ -1,0 +1,16 @@
+<div layout="row">
+    <md-content layout-padding layout="column">
+        <md-whiteframe class="md-whiteframe-z2" layout="row" layout-margin layout-align="center center">
+            <h3 class="md-title">Right Pane</h3>
+        </md-whiteframe>
+        <md-input-container layout-margin layout="row" flex>
+            <div layout="column">
+                <ng-md-icon icon="email" style="fill:#607d8b"></ng-md-icon>
+            </div>
+            <input ng-model="email" type="email" placeholder="Email" layout="column" flex>
+        </md-input-container>
+        <md-button ng-click="subscribe()" layout="row" class="md-raised">
+            Subscribe
+        </md-button>
+    </md-content>
+</div>

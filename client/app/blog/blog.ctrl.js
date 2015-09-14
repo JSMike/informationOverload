@@ -2,7 +2,7 @@
     "use strict";
     var blog = angular.module("mcBlog");
 
-    blog.controller("mcBlog.ctrl", ["$state", function ($state) {
+    blog.controller("mcBlog.ctrl", ["$scope", function ($scope) {
 
     }]);
 

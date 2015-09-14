@@ -9,3 +9,6 @@ Thumbs.db
 
 # Ignore Build Directory
 build/
+
+# Ignore compiled css
+client/css/*.css

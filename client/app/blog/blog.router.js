@@ -5,6 +5,7 @@
     blog.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state("blog", {
+                parent: "mc",
                 url: "/blog",
                 views: {
                     "": {

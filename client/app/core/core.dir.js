@@ -2,16 +2,17 @@
     "use strict";
     var core = angular.module("mcCore");
 
-    core.directive("navbar", [function () {
+    core.directive("mcNavbar", [function () {
         return {
             restrict: "E",
             replace: true,
             scope: false,
-            templateUrl: "app/core/templates/navbar.html"
+            templateUrl: "app/core/templates/navbar.html",
+            controller: "navCtrl"
         };
     }]);
 
-    core.directive("footer", [function () {
+    core.directive("mcFooter", [function () {
         return {
             restrict: "E",
             replace: true,

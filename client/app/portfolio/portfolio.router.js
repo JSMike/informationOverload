@@ -5,11 +5,12 @@
     port.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state("portfolio", {
-                url: "/port",
+                parent: "mc",
+                url: "/portfolio",
                 views: {
                     "": {
-                        templateUrl: "app/port/port.html",
-                        controller: "mcport.ctrl"
+                        templateUrl: "app/portfolio/portfolio.html",
+                        controller: "mcPort.ctrl"
                     }
                 }
             });

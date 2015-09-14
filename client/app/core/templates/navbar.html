@@ -1,3 +1,22 @@
-<div id="navbar">
-
+<div>
+    <md-toolbar layout="row" class="md-primary md-whiteframe-z1">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="toggleSidenav('left')" aria-label="Menu">
+                <ng-md-icon icon="menu"></ng-md-icon>
+            </md-button>
+            <h2>mcebrian.com</h2>
+            <span flex></span>
+            <md-button aria-label="Search">
+                <ng-md-icon icon="search"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content layout="row">
+        <md-tabs md-stretch-tabs="always" class="md-accent md-hue-2" md-selected="tabIndex" flex>
+            <md-tab label="Blog" class="md-acc"></md-tab>
+            <md-tab label="Links"></md-tab>
+            <md-tab label="Portfolio"></md-tab>
+            <md-tab label="Resume"></md-tab>
+        </md-tabs>
+    </md-content>
 </div>

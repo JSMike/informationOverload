@@ -19,13 +19,14 @@ module.exports = {
         app: ["client/app/**/*.js"]
     },
     htmlFiles: "client/**/*.html",
-    lessFiles: ["client/css/**/*.less"],
+    lessFiles: ["client/css/styles.less"],
     cssDev: "client/css",
     cssDist: "build/css",
     cssFiles: ["client/css/**/*.css", "build/css/**/*.css"],
     jsDist: "build/app",
     imgFiles: "client/img/**/*.*",
     imgDist: "build/img",
+    htmlhintoptions: {"doctype-first": false},
     nodemon: {
         script: "server/server.js",
         delayTime: 1,

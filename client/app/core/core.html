@@ -1,6 +1,4 @@
-<div id="index" class="container">
-  <section id="wrapper" class="main-content">
-    <div id="headerView" ui-view="header"></div>
-    <div id="mainView" ui-view="main"></div>
-  </section>
+<div layout="row" layout-fill>
+    <div id="leftNavView" layout="column" ui-view="left"></div>
+    <div id="mainView" layout="column" layout-fill ui-view="main"></div>
 </div>

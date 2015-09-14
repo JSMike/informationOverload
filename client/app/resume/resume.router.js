@@ -5,6 +5,7 @@
     resume.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state("resume", {
+                parent: "mc",
                 url: "/resume",
                 views: {
                     "": {

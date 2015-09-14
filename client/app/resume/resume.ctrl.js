@@ -2,7 +2,7 @@
     "use strict";
     var resume = angular.module("mcRes");
 
-    resume.controller("mcRes.ctrl", ["$state", function ($state) {
+    resume.controller("mcRes.ctrl", ["$scope", function ($scope) {
 
     }]);
 

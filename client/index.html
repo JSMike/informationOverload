@@ -8,6 +8,7 @@
         <base href="/">
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+        <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css"/>
         <link rel="stylesheet" href="bower_components/animate.css/animate.css"/>
         <link rel="stylesheet" href="bower_components/toastr/toastr.css"/>
         <!-- endbower -->
@@ -15,40 +16,45 @@
         <link rel="stylesheet" href="css/styles.css"/>
         <!-- endinject -->
     </head>
-    <body>
-        <navbar></navbar>
-        <div id="main" ui-view></div>
-        <footer></footer>
+    <body layout="column">
+        <mc-navbar></mc-navbar>
+        <section id="main" ui-view></section>
+        <mc-footer></mc-footer>
         <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-animate/angular-animate.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-aria/angular-aria.js"></script>
         <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
         <script src="bower_components/angular-touch/angular-touch.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/moment/moment.js"></script>
         <script src="bower_components/toastr/toastr.js"></script>
         <!-- endbower -->
         <!-- inject:js -->
         <script src="app/app.js"></script>
         <script src="app/blog/blog.module.js"></script>
+        <script src="app/links/links.module.js"></script>
+        <script src="app/core/core.module.js"></script>
         <script src="app/portfolio/portfolio.module.js"></script>
         <script src="app/resume/resume.module.js"></script>
-        <script src="app/core/core.module.js"></script>
         <script src="app/blog/blog.ctrl.js"></script>
         <script src="app/blog/blog.dir.js"></script>
         <script src="app/blog/blog.router.js"></script>
+        <script src="app/links/links.ctrl.js"></script>
+        <script src="app/links/links.dir.js"></script>
+        <script src="app/links/links.router.js"></script>
+        <script src="app/core/core.config.js"></script>
+        <script src="app/core/core.ctrl.js"></script>
+        <script src="app/core/core.dir.js"></script>
         <script src="app/portfolio/portfolio.ctrl.js"></script>
         <script src="app/portfolio/portfolio.dir.js"></script>
         <script src="app/portfolio/portfolio.router.js"></script>
         <script src="app/resume/resume.ctrl.js"></script>
         <script src="app/resume/resume.dir.js"></script>
         <script src="app/resume/resume.router.js"></script>
-        <script src="app/core/core.ctrl.js"></script>
-        <script src="app/core/core.dir.js"></script>
-        <script src="app/core/core.router.js"></script>
         <!-- endinject -->
     </body>
 </html>

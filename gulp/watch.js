@@ -21,6 +21,8 @@ gulp.task("watch", ["build"], function () {
             run("less");
         }
     });
-    gulp.watch(conf.htmlFiles, ["minify:html"]);
+    gulp.watch(conf.htmlFiles, function () {
+        run("htmlhint", "minify:html");
+    });
     gulp.watch(conf.imgFiles, ["minify:img"]);
 });
