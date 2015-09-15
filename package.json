@@ -20,6 +20,7 @@
     "gulp-angular-templatecache": "^1.7.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-bump": "^0.3.1",
+    "gulp-concat": "^2.6.0",
     "gulp-csso": "^1.0.0",
     "gulp-filter": "^3.0.1",
     "gulp-htmlhint": "^0.3.0",
@@ -38,6 +39,7 @@
     "jshint-stylish": "^2.0.1",
     "lodash": "^3.10.1",
     "run-sequence": "^1.1.2",
+    "stream-series": "^0.1.1",
     "wiredep": "^3.0.0-beta"
   },
   "dependencies": {
