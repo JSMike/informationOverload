@@ -43,7 +43,7 @@
         };
 
         $scope.$watch("tabIndex", function (selected, previous) {
-             $location.url($scope.tabs[selected]);
+            $location.url($scope.tabs[selected]);
         });
 
     }]);
