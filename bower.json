@@ -1,47 +1,19 @@
 {
-    "name": "mcebrian.com",
-    "version": "0.0.1",
-    "description": "Blogging, portfolio, and resume site for Michael Cebrian",
-    "authors": [
-        "Michael Cebrian <mcebri01@villanova.edu>"
-    ],
-    "license": "MIT",
-    "homepage": "http://mcebrian.com",
-    "dependencies": {
-        "angular": "~1.4.5",
-        "angular-animate": "~1.4.5",
-        "angular-cookies": "~1.4.5",
-        "angular-material": "~0.11.0",
-        "angular-material-icons": "~0.5.0",
-        "angular-touch": "~1.4.5",
-        "angular-ui-router": "~0.2.15",
-        "animate.css": "~3.3.0",
-        "jquery": "~2.1.4",
-        "moment": "~2.10.6",
-        "toastr": "~2.1.1"
-    },
-    "devDependencies": {
-        "angular-mocks": "~1.4.5",
-        "bardjs": "~0.1.5",
-        "sinon": "~1.12.2"
-    },
-    "resolutions": {
-        "angular": "~1.4.5",
-        "jquery": "~2.1.4",
-        "sinon": "~1.12.2"
-    },
-    "overrides": {
-        "angular": {
-            "dependencies": {
-                "jquery": "~2.1.4"
-            }
-        },
-        "angular-material-icons": {
-            "main": [
-                "angular-material-icons.min.js",
-                "angular-material-icons.css"
-            ]
-        }
-    },
-    "private": true
+  "name": "National Hunger & Homelessness Awareness Week",
+  "version": "0.0.1",
+  "description": "Villanova - CSC2020 - Michael Cebrian - HHAW",
+  "authors": [
+    "Michael Cebrian <mcebri01@villanova.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "http://webster.csc.villanova.edu/~webber10/hhawSite.html",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "scrollmagic": "~2.0.5",
+    "lodash": "~3.10.1"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4"
+  },
+  "private": true
 }

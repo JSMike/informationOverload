@@ -23,7 +23,7 @@ module.exports = {
     cssDev: "client/css",
     cssDist: "build/css",
     cssFiles: ["client/css/**/*.css", "build/css/**/*.css"],
-    jsDist: "build/app",
+    jsDist: "build/js",
     imgFiles: "client/img/**/*.*",
     imgDist: "build/img",
     htmlhintoptions: {"doctype-first": false},
@@ -33,7 +33,7 @@ module.exports = {
         watch: ["server/**/*.js"],
         env: {
             "PORT": 80,
-            "NODE_ENV": "dist"
+            "NODE_ENV": "dev"
         }
     },
     wiredep: {
@@ -75,9 +75,8 @@ module.exports = {
                 return '<link rel="stylesheet" href="' + filePath + '"/>';
             }
         },
-        app: ["client/app/app.js"],
-        modules: ["client/app/**/*.module.js"],
-        other: ["client/app/**/*.js", "!client/app/app.js", "!client/app/**/*.module.js", "!client/app/**/*.spec.js"],
+        app: ["client/js/hhaw.js"],
+        other: ["client/js/**/*.js", "!client/js/hhaw.js"],
         cssFiles: ["client/css/**/*.css"]
 
     }

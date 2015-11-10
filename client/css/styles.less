@@ -1,10 +1,156 @@
 @import "palette";
 
-.dark-primary-color    { background: @darkPrimaryColor; }
-.default-primary-color { background: @primaryColor; }
-.light-primary-color   { background: @lightPrimaryColor; }
-.text-primary-color    { color: @textPrimaryColor; }
-.accent-color          { background: @accentColor; }
-.primary-text-color    { color: @primaryTextColor; }
-.secondary-text-color  { color: @secondaryTextColor; }
-.divider-color         { border-color: @dividerColor; }
+html, body {
+    padding: 0;
+    height: 100%;
+    background-color: @navy;
+}
+
+body {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 533px;
+    margin: 0 auto;
+}
+
+a:hover img {
+    -webkit-filter: brightness(.8);
+    filter: brightness(.8);
+}
+
+#pane1 {
+    padding-top: 40px;
+    color: @orange;
+    background-color: white;
+    z-index: 0;
+}
+
+#pane2 {
+    background-color: @navy;
+    color: snow;
+    z-index: 2;
+}
+
+#pane4 {
+    color: @orange;
+    background-color: white;
+    z-index: 3;
+}
+
+#pane6 {
+    background-color: @navy;
+    color: snow;
+    z-index: 5;
+}
+
+
+#pane8 {
+    color: @orange;
+    background-color: white;
+    z-index: 7;
+}
+
+#pane10 {
+    background-color: @navy;
+    color: snow;
+    z-index: 9;
+}
+
+#pane10 table {
+    padding-bottom: 20px;
+}
+
+#pane10 a, #pane10 a:visited {
+    color: @orange;
+    text-decoration: none;
+}
+
+#pane10 a:hover {
+    color: @orange;
+    text-decoration: underline;
+}
+
+#pane10 td {
+    padding: 0 5px;
+}
+
+#pane12 {
+    padding: 5px 20px;
+    background-color: @navy;
+    color: @orange;
+    z-index: 10;
+}
+
+@media (min-width: 850px) {
+    #pane13 {
+        padding: 0 20%;
+        font-size: 0;
+        background-color: white;
+        z-index: 10;
+    }
+}
+
+@media (max-width: 849px) and (min-width: 600px) {
+    #pane13 {
+        padding: 0 10%;
+        font-size: 0;
+        background-color: white;
+        z-index: 10;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 599px) {
+    #pane13 {
+        font-size: 0;
+        background-color: white;
+        z-index: 10;
+        min-height: 205px;
+    }
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.full {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.half {
+    display: inline;
+    vertical-align: middle;
+    width: 50%;
+    height: auto;
+    max-width: 50%;
+}
+
+.quarter {
+    display: inline;
+    vertical-align: middle;
+    width: 25%;
+    height: auto;
+    max-width: 25%;
+}
+
+.orange {
+    color: @orange;
+}
+
+
+.pane h2, .pane > h3 {
+    margin-top: 0;
+    padding: 20px 20px 5px 20px;
+}
+
+.pane > p {
+    padding: 5px 20px;
+}
