@@ -1,19 +1,45 @@
 {
-  "name": "National Hunger & Homelessness Awareness Week",
+  "name": "InformationOverload",
   "version": "0.0.1",
-  "description": "Villanova - CSC2020 - Michael Cebrian - HHAW",
+  "description": "See what information you're freely passing around while surfing the web",
   "authors": [
     "Michael Cebrian <mcebri01@villanova.edu>"
   ],
   "license": "MIT",
-  "homepage": "http://webster.csc.villanova.edu/~webber10/hhawSite.html",
+  "homepage": "http://mcebrian.com",
   "dependencies": {
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
+    "angular-cookies": "~1.4.7",
+    "angular-material": "~1.0.0-rc3",
+    "angular-material-icons": "~0.6.0",
+    "angular-touch": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "animate.css": "~3.4.0",
     "jquery": "~2.1.4",
-    "scrollmagic": "~2.0.5",
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "moment": "~2.10.6",
+    "toastr": "~2.1.2",
+    "ngstorage": "~0.3.10"
+  },
+  "devDependencies": {
   },
   "resolutions": {
+    "angular": "~1.4.7",
     "jquery": "~2.1.4"
+  },
+  "overrides": {
+    "angular": {
+      "dependencies": {
+        "jquery": "~2.1.4"
+      }
+    },
+    "angular-material-icons": {
+      "main": [
+        "angular-material-icons.min.js",
+        "angular-material-icons.css"
+      ]
+    }
   },
   "private": true
 }

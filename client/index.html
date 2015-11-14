@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="io">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+        <title ng-bind="title">io</title>
+        <base href="/">
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+        <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css"/>
+        <link rel="stylesheet" href="bower_components/animate.css/animate.css"/>
+        <link rel="stylesheet" href="bower_components/toastr/toastr.css"/>
+        <!-- endbower -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="css/styles.css"/>
+        <!-- endinject -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/lodash/lodash.js"></script>
+        <script src="bower_components/moment/moment.js"></script>
+        <script src="bower_components/toastr/toastr.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.js"></script>
+        <!-- endbower -->
+        <!-- inject:js -->
+        <script src="app/app.js"></script>
+        <script src="app/core/core.module.js"></script>
+        <script src="app/facebook/fb.module.js"></script>
+        <script src="app/google/google.module.js"></script>
+        <script src="app/local/local.module.js"></script>
+        <script src="app/twitter/twitter.module.js"></script>
+        <script src="app/core/core.config.js"></script>
+        <script src="app/core/core.ctrl.js"></script>
+        <script src="app/facebook/fb.ctrl.js"></script>
+        <script src="app/google/google.ctrl.js"></script>
+        <script src="app/local/local.ctrl.js"></script>
+        <script src="app/twitter/twitter.ctrl.js"></script>
+        <!-- endinject -->
+    </head>
+    <body>
+        <div id="main" ui-view></div>
+    </body>
+</html>

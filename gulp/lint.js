@@ -11,11 +11,11 @@ var conf = require("../gulp.config");
 gulp.task("lint", function () {
     return gulp.src(conf.jsFiles.watch)
         .pipe(jshint())
+        .on("error", util.noop)
         .pipe(jscs())
         .on("error", util.noop)
         .pipe(stylish.combineWithHintResults())
-        .pipe(jshint.reporter("jshint-stylish"))
-        .pipe(jshint.reporter("fail"));
+        .pipe(jshint.reporter("jshint-stylish"));
 });
 
 gulp.task("htmlhint", function () {

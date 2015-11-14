@@ -23,7 +23,7 @@ module.exports = {
     cssDev: "client/css",
     cssDist: "build/css",
     cssFiles: ["client/css/**/*.css", "build/css/**/*.css"],
-    jsDist: "build/js",
+    jsDist: "build/app",
     imgFiles: "client/img/**/*.*",
     imgDist: "build/img",
     htmlhintoptions: {"doctype-first": false},
@@ -75,8 +75,9 @@ module.exports = {
                 return '<link rel="stylesheet" href="' + filePath + '"/>';
             }
         },
-        app: ["client/js/hhaw.js"],
-        other: ["client/js/**/*.js", "!client/js/hhaw.js"],
+        app: ["client/app/app.js"],
+        modules: ["client/app/**/*.module.js"],
+        other: ["client/app/**/*.js", "!client/app/app.js", "!client/app/**/*.module.js", "!client/app/**/*.spec.js"],
         cssFiles: ["client/css/**/*.css"]
 
     }

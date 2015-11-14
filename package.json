@@ -1,63 +1,73 @@
 {
-    "name": "mcebrian.com",
-    "version": "0.0.1",
-    "description": "Blogging, portfolio, and resume site for Michael Cebrian",
-    "main": "start.js",
-    "scripts": {
-        "test": "start.js test"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@mcebrian.com:/opt/git/mcebrian.com.git"
-    },
-    "author": "Michael Cebrian <mcebri01@villanova.edu>",
-    "license": "MIT",
-    "devDependencies": {
-        "chalk": "^1.1.1",
-        "del": "^1.2.1",
-        "glob-array": "^0.1.2",
+  "name": "InformationOverload",
+  "version": "0.0.1",
+  "description": "See what information you're freely passing around while surfing the web",
+  "main": "start.js",
+  "scripts": {
+    "test": "start.js test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@mcebrian.com:/opt/git/mcebrian.com.git"
+  },
+  "author": "Michael Cebrian <mcebri01@villanova.edu>",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^1.1.1",
+    "del": "^1.2.1",
+    "glob-array": "^0.1.2",
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-bump": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-csso": "^1.0.0",
+    "gulp-filter": "^3.0.1",
+    "gulp-htmlhint": "^0.3.0",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-inject": "^1.5.0",
+    "gulp-jscs": "^2.0.0",
+    "gulp-jscs-stylish": "^1.1.2",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "jshint-stylish": "^2.0.1",
+    "lodash": "^3.10.1",
+    "run-sequence": "^1.1.2",
+    "stream-series": "^0.1.1",
+    "wiredep": "^3.0.0-beta"
+  },
+  "dependencies": {
+    "express" : "~4.13.3",
+    "mongoose" : "~4.2.5",
+    "passport" : "~0.3.2",
+    "passport-local" : "~1.0.0",
+    "passport-facebook" : "~2.0.0",
+    "passport-twitter" : "~1.0.3",
+    "passport-google-oauth" : "~0.2.0",
+    "bcrypt-nodejs" : "~0.0.3",
+    "morgan": "~1.6.1",
+    "body-parser": "~1.14.1",
+    "cookie-parser": "~1.4.0",
+    "method-override": "~2.3.5",
+    "express-session": "~1.12.1"
+  },
+  "overrides": {
+    "gulp-nodemon": {
+      "dependencies": {
         "gulp": "^3.9.0",
-        "gulp-angular-templatecache": "^1.7.0",
-        "gulp-autoprefixer": "^2.3.1",
-        "gulp-bump": "^0.3.1",
-        "gulp-concat": "^2.6.0",
-        "gulp-csso": "^1.0.0",
-        "gulp-filter": "^3.0.1",
-        "gulp-htmlhint": "^0.3.0",
-        "gulp-if": "^1.2.5",
-        "gulp-imagemin": "^2.3.0",
-        "gulp-inject": "^1.5.0",
-        "gulp-jscs": "^2.0.0",
-        "gulp-jscs-stylish": "^1.1.2",
-        "gulp-jshint": "^1.11.2",
-        "gulp-less": "^3.0.3",
-        "gulp-minify-html": "^1.0.4",
-        "gulp-nodemon": "^2.0.4",
-        "gulp-plumber": "^1.0.1",
-        "gulp-uglify": "^1.2.0",
-        "gulp-util": "^3.0.6",
-        "jshint-stylish": "^2.0.1",
-        "lodash": "^3.10.1",
-        "run-sequence": "^1.1.2",
-        "stream-series": "^0.1.1",
-        "wiredep": "^3.0.0-beta"
-    },
-    "dependencies": {
-        "body-parser": "^1.13.3",
-        "cors": "^2.7.1",
-        "express": "^4.13.3",
-        "morgan": "^1.6.1",
-        "serve-favicon": "^2.3.0"
-    },
-    "overrides": {
-        "gulp-nodemon": {
-            "dependencies": {
-                "gulp": "^3.9.0",
-                "nodemon": "^1.5.0",
-                "event-stream": "^3.2.1",
-                "colors": "^1.0.3"
-            }
-        }
-    },
-    "private": true
+        "nodemon": "^1.8.1",
+        "event-stream": "^3.3.2",
+        "colors": "^1.1.2"
+      }
+    }
+  },
+  "private": true
 }

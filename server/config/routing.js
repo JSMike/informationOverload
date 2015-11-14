@@ -4,7 +4,7 @@ var path = require("path");
 
 var routing = function (router, staticPath) {
     router.get("*", function (req, res) {
-        res.sendFile(path.join(staticPath, "hhawSite.html"));
+        res.sendFile(path.join(staticPath, "index.html"));
     });
 };
 

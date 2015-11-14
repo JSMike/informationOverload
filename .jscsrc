@@ -6,7 +6,6 @@
 	"disallowMixedSpacesAndTabs" : true,
 	"disallowMultipleLineBreaks" : true,
 	"disallowMultipleLineStrings" : true,
-	"disallowMultipleVarDecl" : true,
 	"disallowSpaceAfterObjectKeys" : true,
 	"disallowSpaceAfterPrefixUnaryOperators" : true,
 	"disallowSpaceBeforeBinaryOperators" : [","],
