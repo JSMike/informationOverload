@@ -1,14 +1,10 @@
-<div layout="column" flex>
-    <hgroup layout="column" layout-align="center center">
+<div layout="column" layout-align="start center" flex>
+    <div class="hgroup" layout="column" layout-align="start center">
         <h1>Information Overload</h1>
         <h3>See what you're freely passing around the web</h3>
-    </hgroup>
+    </div>
     <div layout="row" layout-align="center center">
-        <md-whiteframe class="md-whiteframe-z3" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout="column" layout-align="center center">
-            <md-input-container layout="row">
-                <ng-md-icon icon="person" flex-order="1"></ng-md-icon>
-                <input ng-model="vm.name" type="text" placeholder="Name" ng-required="true" flex-order="2">
-            </md-input-container>
+        <md-whiteframe class="md-whiteframe-z3" layout="column" layout-align="center center">
             <md-input-container layout="row">
                 <ng-md-icon icon="email" flex-order="1"></ng-md-icon>
                 <input ng-model="vm.email" type="email" placeholder="Email" ng-required="true" flex-order="2">
@@ -20,6 +16,27 @@
             <div layout="column" layout-fill>
                 <md-button class="md-raised md-primary"><ng-md-icon icon="login"></ng-md-icon> Log in</md-button>
             </div>
+            <div>Or login with:</div>
+            <div layout="row">
+                <md-button ng-click="twitter()" class="md-fab twitter-bg" layout="column" layout-align="start center" aria-label="Share on Twitter">
+                    <ng-md-icon icon="twitter"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="facebook()" class="md-fab facebook-bg" layout="column" layout-align="start center" aria-label="Share on Facebook">
+                    <ng-md-icon icon="facebook"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="linkedin()" class="md-fab linkedin-bg" layout="column" layout-align="start center" aria-label="Share on LinkedIn">
+                    <ng-md-icon icon="linkedin"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="googleplus()" class="md-fab googleplus-bg" layout="column" layout-align="start center" aria-label="Share on Google+">
+                    <ng-md-icon icon="google-plus"></ng-md-icon>
+                </md-button>
+            </div>
         </md-whiteframe>
     </div>
+    <footer layout="column" layout-align="end center" flex>
+        <p class="textCenter">
+            An informational website by Michael Cebrian<br>
+            Villanova CSC-5930 - Digital Forensics
+        </p>
+    </footer>
 </div>
