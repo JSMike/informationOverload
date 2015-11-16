@@ -20,10 +20,10 @@
     "lodash": "~3.10.1",
     "moment": "~2.10.6",
     "toastr": "~2.1.2",
-    "ngstorage": "~0.3.10"
+    "ngstorage": "~0.3.10",
+    "font-awesome": "fontawesome#~4.4.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "resolutions": {
     "angular": "~1.4.7",
     "jquery": "~2.1.4"
@@ -38,6 +38,13 @@
       "main": [
         "angular-material-icons.min.js",
         "angular-material-icons.css"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "less/font-awesome.less",
+        "scss/font-awesome.scss"
       ]
     }
   },

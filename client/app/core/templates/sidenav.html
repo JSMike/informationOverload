@@ -1,0 +1,7 @@
+<div layout="column">
+    <md-button ng-repeat="id in vm.ids track by $index" layout="row"
+        ng-click="vm.selectId($index)" class="md-whiteframe-z2 sidenav-button" ng-class="{'selected' : id.name === selected }">
+        <md-icon ng-class="['circle', 'text-primary-color', 's48', id.class]" ng-md-icon icon="{{id.icon}}"></md-icon>
+        <span>{{id.name}}</span>
+    </md-button>
+</div>

@@ -49,6 +49,10 @@ md-whiteframe {
 	padding: 2.5em 2em 2em 2em;
 }
 
+.md-whiteframe-z2 {
+    background-color: @textPrimaryColor;
+}
+
 md-input-container:not(.md-input-invalid) {
     font-size: 18px;
     color: @secondaryTextColor;
@@ -95,4 +99,50 @@ footer {
 
 .md-fab.md-button.googleplus-bg {
     background-color: @googleplus;
+}
+
+.md-fab.md-button.twitter-bg:hover { background-color: @twitter;}
+.md-fab.md-button.facebook-bg:hover { background-color: @facebook; }
+.md-fab.md-button.googleplus-bg:hover { background-color: @googleplus; }
+.md-fab.md-button.linkedin-bg:hover { background-color: @linkedin; }
+
+.md-fab.md-button:hover {
+    transform: rotateZ(360deg);
+}
+.md-fab.md-button {
+    transition: all 0.7s ease;
+}
+
+md-icon.s48 {
+    height: 48px;
+    width: 48px;
+    overflow: hidden;
+    line-height: 60px;
+}
+
+md-icon.circle {
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.sidenav-button {
+    padding: 5px;
+    text-align: left;
+    text-transform: none;
+    font-size: 20px
+}
+
+.sidenav-button.selected {
+    border-bottom: 3px solid @primaryColor;
+    padding: 5px 5px 2px 5px;
+}
+
+.md-sidenav-left {
+    background-color: #EEE;
+}
+
+a#sniff:visited {
+    background-color: #AA1100;
 }

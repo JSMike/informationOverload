@@ -2,8 +2,11 @@
     "use strict";
     var core = angular.module("core");
 
-    core.config(["$stateProvider", "$urlRouterProvider", "$mdThemingProvider",
-        function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+    core.config(["$stateProvider", "$urlRouterProvider", "$mdThemingProvider", "$mdIconProvider",
+        function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
+
+        $mdIconProvider.defaultFontSet("fontawesome");
+
         $mdThemingProvider.theme("default")
             .primaryPalette("indigo")
             .accentPalette("blue")
@@ -35,7 +38,12 @@
                         templateUrl: "app/core/templates/sidenav.html",
                         controller: "core.sidenav.ctrl",
                         controllerAs: "vm"
-                    }
+                    },
+                    "toolbar@profile": {
+                        templateUrl: "app/core/templates/toolbar.html",
+                        controller: "core.toolbar.ctrl",
+                        controllerAs: "vm"
+                    },
                 }
             });
     }]);
