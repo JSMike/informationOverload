@@ -33,7 +33,7 @@ module.exports = {
         watch: ["server/**/*.js"],
         env: {
             "PORT": 80,
-            "NODE_ENV": "dev"
+            "NODE_ENV": "dist"
         }
     },
     wiredep: {

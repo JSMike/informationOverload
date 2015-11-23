@@ -1,4 +1,76 @@
-<div id="local" layout="column" flex>
-    <span>Local Selected</span>
-    <div ng-bind="vm.location"></div>
+<div id="local" layout="column" layout-padding flex>
+    <section id="location" layout="column">
+        <h3>Location from IP Address</h3>
+        <div class="ipLocData" layout="column">
+            <div><span class="md-subhead">External IP:&nbsp;</span><span ng-bind="vm.iploc.ip"></span></div>
+            <div><span class="md-subhead">Hostname:&nbsp;</span><span ng-bind="vm.iploc.hostname"></span></div>
+            <div><span class="md-subhead">Service Provider:&nbsp;</span><span ng-bind="vm.iploc.org"></span></div>
+            <div><span class="md-subhead">Country:&nbsp;</span><span ng-bind="vm.iploc.country"></span></div>
+            <div><span class="md-subhead">State/Region:&nbsp;</span><span ng-bind="vm.iploc.region"></span></div>
+            <div><span class="md-subhead">City:&nbsp;</span><span ng-bind="vm.iploc.city"></span></div>
+            <div><span class="md-subhead">Zip Code:&nbsp;</span><span ng-bind="vm.iploc.postal"></span></div>
+            <div><span class="md-subhead">Coordinates from IP:&nbsp;</span><span ng-bind="vm.iploc.loc"></span></div>
+        </div>
+
+        <h3>Location from navigator.geolocation</h3>
+        <div class="geoLocData" layout="column">
+            <div><span class="md-subhead" ng-if="geoLoc">Coordinates from navigator.geolocation:&nbsp;</span><span ng-bind="geoLoc.str"></span></div>
+            <div><span class="md-subhead" ng-if="vm.showGeo">Address from reverse geocode:&nbsp;</span><span ng-bind="vm.addr.result[0].formatted_address"></span></div>
+        </div>
+
+        <h3>Map View</h3>
+        <gm-map ng-if="showMap" center="center.center" options="{center: [{{center.latitude}}, {{center.longitude}}], zoom: 13, mapTypeId: google.maps.MapTypeId.ROADMAP}" style="position: relative; height:200px; width: 100%;">
+            <gm-marker options="{position:  [{{vm.iploc.loc}}], draggable: false}" on-dragend="coords.latitude=marker.getPosition().lat(); coords.longitude=marker.getPosition().lng()">
+                <gm-infowindow options="{content: 'Location from IP Address'}"></gm-infowindow>
+            </gm-marker>
+            <gm-marker ng-if="geoLoc" options="{position:  [{{geoLoc.coords.latitude}}, {{geoLoc.coords.longitude}}], draggable: false}" on-dragend="coords.latitude=marker.getPosition().lat(); coords.longitude=marker.getPosition().lng()">
+                <gm-infowindow options="{content: 'Location from navigator.geolocation'}"></gm-infowindow>
+            </gm-marker>
+        </gm-map>
+    </section>
+
+    <section id="browserInfo" layout="column">
+        <h3>Browser Information</h3>
+        <div class="browserData" layout="column">
+            <div><span class="md-subhead">Browser Name:&nbsp;</span><span ng-bind="vm.clientInfo.browser.name"></span></div>
+            <div><span class="md-subhead">Browser Version:&nbsp;</span><span ng-bind="vm.clientInfo.browser.version"></span></div>
+            <div><span class="md-subhead">Window Width:&nbsp;</span><span ng-bind="vm.clientInfo.browserFeatures.window.width"></span></div>
+            <div><span class="md-subhead">Window Height:&nbsp;</span><span ng-bind="vm.clientInfo.browserFeatures.window.height"></span></div>
+            <div><span class="md-subhead">Allows Cookies:&nbsp;</span><span ng-if="vm.clientInfo.browserFeatures.allowsCookies">Yes</span><span ng-if="!vm.clientInfo.browserFeatures.allowsCookies">No</span></div>
+        </div>
+    </section>
+
+    <section id="computerInfo" layout="column">
+        <h3>Computer Information</h3>
+        <div class="browserData" layout="column">
+            <div><span class="md-subhead">Operating System:&nbsp;</span><span ng-bind="vm.clientInfo.os.name"></span>&nbsp;<span ng-bind="vm.clientInfo.os.versionString"></span></div>
+            <div><span class="md-subhead">Screen Width:&nbsp;</span><span ng-bind="vm.clientInfo.device.screen.width"></span></div>
+            <div><span class="md-subhead">Screen Height:&nbsp;</span><span ng-bind="vm.clientInfo.device.screen.height"></span></div>
+            <div><span class="md-subhead">Device:&nbsp;</span><span ng-if="vm.clientInfo.device.device" ng-bind="vm.clientInfo.device.device"></span><span ng-if="!vm.clientInfo.device.device">Computer</span></div>
+        </div>
+    </section>
+
+    <section id="pluginDetect" layout="column">
+        <h3>Plugin Information</h3>
+
+        <div layout="column" ng-repeat="plugin in vm.PluginDetect track by $index">
+            <div><span class="md-subhead">Plugin Name:&nbsp;</span><span ng-bind="plugin.name"></span></div>
+            <div><span class="md-subhead">Version:&nbsp;</span><span ng-bind="plugin.version"></span></div>
+            <div><span class="md-subhead">File:&nbsp;</span><span ng-bind="plugin.file"></span></div>
+            <div><span class="md-subhead">Description:&nbsp;</span><span ng-bind="plugin.description"></span></div>
+            <div><span class="md-subhead">Associations:&nbsp;</span></div>
+            <table>
+                <tr>
+                    <th class="md-subhead">Mime Type</th>
+                    <th class="md-subhead">Description</th>
+                    <th class="md-subhead">File Extension Supported</th>
+                </tr>
+                <tr ng-repeat="mime in plugin.mimetypes">
+                    <td ng-bind="mime.type"></td>
+                    <td ng-bind="mime.description"></td>
+                    <td ng-bind="mime.suffixes"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
 </div>

@@ -21,7 +21,10 @@
     "moment": "~2.10.6",
     "toastr": "~2.1.2",
     "ngstorage": "~0.3.10",
-    "font-awesome": "fontawesome#~4.4.0"
+    "angular-google-maps-native": "~2.0.0",
+    "client-info": "https://github.com/JSMike/client-info.git#a7a3cef55ed323aed79f571a02081afdeb9f7c1b",
+    "angularjs-geolocation": "git://github.com/arunisrael/angularjs-geolocation.git#~0.1.1",
+    "angular-geocode": "*"
   },
   "devDependencies": {},
   "resolutions": {
@@ -30,9 +33,28 @@
   },
   "overrides": {
     "angular": {
+      "main": "./angular.min.js",
       "dependencies": {
         "jquery": "~2.1.4"
       }
+    },
+    "angular-animate": {
+      "main": "./angular-animate.min.js"
+    },
+    "angular-aria": {
+      "main": "./angular-aria.min.js"
+    },
+    "angular-cookies": {
+      "main": "./angular-cookies.min.js"
+    },
+    "angular-geocode": {
+      "main": "./dist/angular-geocode.min.js"
+    },
+    "angular-material": {
+      "main": [
+        "angular-material.min.js",
+        "angular-material.min.css"
+      ]
     },
     "angular-material-icons": {
       "main": [
@@ -40,11 +62,34 @@
         "angular-material-icons.css"
       ]
     },
-    "font-awesome": {
+    "angular-touch": {
+      "main": "./angular-touch.min.js"
+    },
+    "angular-ui-router": {
+      "main": "./release/angular-ui-router.min.js"
+    },
+    "angularjs-geolocation": {
+      "main": "./dist/angularjs-geolocation.min.js"
+    },
+    "animate.css": {
+      "main": "./animate.min.css"
+    },
+    "jquery": {
+      "main": "./dist/jquery.min.js"
+    },
+    "lodash": {
+      "main": "./lodash.min.js"
+    },
+    "moment": {
+      "main": "./min/moment.min.js"
+    },
+    "ngstorage": {
+      "main": "./ngStorage.min.js"
+    },
+    "toastr": {
       "main": [
-        "css/font-awesome.css",
-        "less/font-awesome.less",
-        "scss/font-awesome.scss"
+        "toastr.min.js",
+        "toastr.min.css"
       ]
     }
   },
