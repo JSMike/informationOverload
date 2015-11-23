@@ -2,10 +2,8 @@
     "use strict";
     var core = angular.module("core");
 
-    core.config(["$stateProvider", "$urlRouterProvider", "$mdThemingProvider", "$mdIconProvider",
-        function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
-
-        $mdIconProvider.defaultFontSet("fontawesome");
+    core.config(["$stateProvider", "$urlRouterProvider", "$mdThemingProvider",
+        function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
         $mdThemingProvider.theme("default")
             .primaryPalette("indigo")
