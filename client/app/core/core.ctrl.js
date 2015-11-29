@@ -12,7 +12,7 @@
 
     }]);
 
-    core.controller("core.sidenav.ctrl", ["$scope", "$http", "$state", function ($scope, $http, $state) {
+    core.controller("core.sidenav.ctrl", ["$scope", "$rootScope", "$http", "$state", function ($scope, $rootScope, $http, $state) {
         var vm = this;
 
         $scope.selected = _.get($state, "current.name", "profile") != "profile" ? $state.current.name : "local";
@@ -51,6 +51,11 @@
         $scope.$watch("selected", function (selected, previous) {
             $state.go(selected);
         });
+
+        $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+            $scope.selected = toState.name;
+        });
+
 
     }]);
 
