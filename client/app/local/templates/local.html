@@ -59,18 +59,18 @@
             <div><span class="md-subhead">File:&nbsp;</span><span ng-bind="plugin.file"></span></div>
             <div><span class="md-subhead">Description:&nbsp;</span><span ng-bind="plugin.description"></span></div>
             <div><span class="md-subhead">Associations:&nbsp;</span></div>
-            <table>
-                <tr>
-                    <th class="md-subhead">Mime Type</th>
-                    <th class="md-subhead">Description</th>
-                    <th class="md-subhead">File Extension Supported</th>
-                </tr>
-                <tr ng-repeat="mime in plugin.mimetypes">
-                    <td ng-bind="mime.type"></td>
-                    <td ng-bind="mime.description"></td>
-                    <td ng-bind="mime.suffixes"></td>
-                </tr>
-            </table>
+            <div layout="column" class="mime-table">
+                <div layout="row" class="mime-row">
+                    <div class="md-subhead" flex="33">Mime Type</div>
+                    <div class="md-subhead" flex="33">Description</div>
+                    <div class="md-subhead" flex="33">File Extension Supported</div>
+                </div>
+                <div layout="row" class="mime-row" ng-repeat="mime in plugin.mimetypes">
+                    <div ng-bind="mime.type" flex="33"></div>
+                    <div ng-bind="mime.description" flex="33"></div>
+                    <div ng-bind="mime.suffixes" flex="33"></div>
+                </div>
+            </div>
         </div>
     </section>
 </div>
