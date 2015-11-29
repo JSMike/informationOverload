@@ -7,7 +7,7 @@ var conf = require("../gulp.config");
 gulp.task("watch", ["build"], function () {
     gulp.watch(conf.jsFiles.watch, function (evt) {
         var tasks = ["lint"];
-        if (evt in {"added":1, "deleted":1}) {
+        if (evt in { "added":1, "deleted":1 }) {
             tasks.push("inject");
         } else {
             tasks.push("minify:js");
@@ -15,7 +15,7 @@ gulp.task("watch", ["build"], function () {
         run(tasks);
     });
     gulp.watch(conf.lessFiles, function (evt) {
-        if (evt in {"added":1, "deleted":1}) {
+        if (evt in { "added":1, "deleted":1 }) {
             run("inject");
         } else {
             run("less");

@@ -4,6 +4,7 @@
 	"disallowKeywords" : ["with"],
 	"disallowKeywordsOnNewLine" : ["else", "catch"],
 	"disallowMixedSpacesAndTabs" : true,
+    "disallowMultipleSpaces": { "allowEOLComments": true },
 	"disallowMultipleLineBreaks" : true,
 	"disallowMultipleLineStrings" : true,
 	"disallowSpaceAfterObjectKeys" : true,
@@ -17,7 +18,7 @@
 		"beforeOpeningRoundBrace" : true
 	},
 	"disallowSpacesInsideArrayBrackets" : true,
-	"disallowSpacesInsideObjectBrackets" : true,
+	"requireSpacesInsideObjectBrackets" : "all",
 	"disallowSpacesInsideParentheses" : true,
 	"disallowTrailingWhitespace" : true,
 	"disallowYodaConditions" : true,

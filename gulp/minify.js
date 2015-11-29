@@ -26,6 +26,6 @@ gulp.task("minify:html", ["clean:html"], function () {
 
 gulp.task("minify:img", ["clean:img"], function () {
     return gulp.src(conf.imgFiles)
-        .pipe(imgMin({optimizationLevel: 4}))
+        .pipe(imgMin({ optimizationLevel: 4 }))
         .pipe(gulp.dest(conf.imgDist));
 });

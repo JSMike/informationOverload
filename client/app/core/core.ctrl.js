@@ -12,7 +12,8 @@
 
     }]);
 
-    core.controller("core.sidenav.ctrl", ["$scope", "$rootScope", "$http", "$state", function ($scope, $rootScope, $http, $state) {
+    core.controller("core.sidenav.ctrl", ["$scope", "$rootScope", "$http", "$state",
+        function ($scope, $rootScope, $http, $state) {
         var vm = this;
 
         $scope.selected = _.get($state, "current.name", "profile") != "profile" ? $state.current.name : "local";
@@ -52,14 +53,14 @@
             $state.go(selected);
         });
 
-        $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+        $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
             $scope.selected = toState.name;
         });
 
-
     }]);
 
-    core.controller("core.toolbar.ctrl", ["$scope", "$http", "$mdSidenav", "$state", function ($scope, $http, $mdSidenav, $state) {
+    core.controller("core.toolbar.ctrl", ["$scope", "$http", "$mdSidenav", "$state",
+        function ($scope, $http, $mdSidenav, $state) {
         var vm = this;
 
         vm.logout = function () {

@@ -26,7 +26,7 @@ module.exports = {
     jsDist: "build/app",
     imgFiles: "client/img/**/*.*",
     imgDist: "build/img",
-    htmlhintoptions: {"doctype-first": false},
+    htmlhintoptions: { "doctype-first": false },
     nodemon: {
         script: "server/server.js",
         delayTime: 1,

@@ -2,7 +2,8 @@
     "use strict";
     var local = angular.module("local");
 
-    local.controller("local.ctrl", ["$scope", "$http", "geolocation", "geocodef", function ($scope, $http, geolocation, geocodef) {
+    local.controller("local.ctrl", ["$scope", "$http", "geolocation", "geocodef",
+        function ($scope, $http, geolocation, geocodef) {
         var vm = this;
 
         $scope.showMap = false;
@@ -45,11 +46,11 @@
                 $scope.center.center = [$scope.center.latitude, $scope.center.longitude];
 
                 geocodef
-                    .toAddress({latLng: pos.coords})
+                    .toAddress({ latLng: pos.coords })
                     .then(function (addr) {
                         vm.addr = addr;
                         vm.showGeo = true;
-                    })
+                    });
 
             })
             .catch(function (err) {
@@ -67,7 +68,7 @@
                 mimetypes: []
             };
 
-            for(var i = 0; i < plugin.length; i++) {
+            for (var i = 0; i < plugin.length; i++) {
                 var mime = {
                     type: plugin[i].type,
                     description: plugin[i].description,
