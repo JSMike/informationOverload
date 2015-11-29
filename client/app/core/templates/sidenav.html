@@ -1,7 +1,16 @@
-<div layout="column">
+<div layout="column" flex>
+    <md-toolbar layout="center" layout-align="center center"><span>Information Overload</span></md-toolbar>
     <md-button ng-repeat="id in vm.ids track by $index" layout="row"
         ng-click="vm.selectId($index)" class="md-whiteframe-z2 sidenav-button" ng-class="{'selected' : id.state === selected }">
         <md-icon ng-class="['circle', 'text-primary-color', 's48', id.class]" ng-md-icon icon="{{id.icon}}"></md-icon>
-        <span>{{id.name}}</span>
+        <span class="sidenav-button-text">{{id.name}}</span>
+    </md-button>
+    <div flex></div>
+    <md-button
+        layout="row"
+        ng-click="vm.delete()"
+        class="md-whiteframe-z2 sidenav-button">
+        <md-icon ng-class="['circle', 'text-primary-color', 's48', id.class]" ng-md-icon icon="x"></md-icon>
+        <span class="sidenav-button-text">Delete Account</span>
     </md-button>
 </div>
