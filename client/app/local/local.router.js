@@ -7,6 +7,7 @@
             .state("local", {
                 parent: "profile",
                 url: "/local",
+                authenticate: true,
                 views: {
                     "": {
                         templateUrl: "app/local/templates/local.html",

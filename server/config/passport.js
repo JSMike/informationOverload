@@ -7,7 +7,7 @@ var TwitterStrategy = require("passport-twitter").Strategy;
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 // load up the user model
-var User = require("../app/models/user");
+var User = require("./models/user");
 
 // load the auth variables
 var configAuth = require("./auth"); // use this one for testing
@@ -48,33 +48,49 @@ module.exports = function (passport) {
 
         // asynchronous
         process.nextTick(function () {
-            User.findOne({ "local.email": email }, function (err, user) {
-                // if there are any errors, return the error
-                if (err) {
-                    return done(err);
-                }
+            // if the user is not already logged in:
+            if (!req.user) {
+                User.findOne({ "local.email": email }, function (err, user) {
+                    // if there are any errors, return the error
+                    if (err) {
+                        return done(err);
+                    }
 
-                // if no user is found, return the message
-                if (!user) {
-                    return done(null, false, req.flash("loginMessage", "No user found."));
-                }
+                    // if no user is found then create user
+                    if (!user) {
+                        var newUser = new User();
 
-                if (!user.validPassword(password)) {
-                    return done(null, false, req.flash("loginMessage", "Oops! Wrong password."));
+                        newUser.local.email = email;
+                        newUser.local.password = newUser.generateHash(password);
 
-                // all is well, return user
-                } else {
-                    return done(null, user);
-                }
-            });
+                        newUser.save(function (err) {
+                            if (err) {
+                                return done(err);
+                            }
+
+                            return done(null, newUser);
+                        });
+                    }
+
+                    if (!user.validPassword(password)) {
+                        return done(null, false, "Oops! Wrong password.");
+
+                    // all is well, return user
+                    } else {
+                        return done(null, user);
+                    }
+                });
+            }
+
+            return done(null, req.user);
         });
-
     }));
+
 
     // =========================================================================
     // LOCAL SIGNUP ============================================================
     // =========================================================================
-    passport.use("local-signup", new LocalStrategy({
+    passport.use("add-local", new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
         usernameField: "email",
         passwordField: "password",
@@ -97,7 +113,7 @@ module.exports = function (passport) {
 
                     // check to see if theres already a user with that email
                     if (user) {
-                        return done(null, false, req.flash("signupMessage", "That email is already taken."));
+                        return done(null, false, "That email is already taken.");
                     } else {
 
                         // create the user
@@ -126,7 +142,7 @@ module.exports = function (passport) {
                     }
 
                     if (user) {
-                        return done(null, false, req.flash("loginMessage", "That email is already taken."));
+                        return done(null, false, "That email is already taken.");
                         // Using "loginMessage instead of signupMessage because it"s used by /connect/local"
                     } else {
                         var user = req.user;

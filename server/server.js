@@ -23,9 +23,15 @@ var mongoCfg = require("./config/mongo")(host);
 mongoose.connect(mongoCfg.url);
 
 // Passport Settings
-app.use(session({ secret: "thecakeisalie" }));
+require("./config/passport")(passport);
+app.use(session({
+    secret: "thecakeisalie",
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 // Express Settings
 app.use(morgan(morganEnv)); // Sets logging level

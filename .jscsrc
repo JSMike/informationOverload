@@ -11,12 +11,6 @@
 	"disallowSpaceAfterPrefixUnaryOperators" : true,
 	"disallowSpaceBeforeBinaryOperators" : [","],
 	"disallowSpaceBeforePostfixUnaryOperators" : ["++", "--"],
-	"disallowSpacesInFunctionDeclaration" : {
-		"beforeOpeningRoundBrace" : true
-	},
-	"disallowSpacesInNamedFunctionExpression" : {
-		"beforeOpeningRoundBrace" : true
-	},
 	"disallowSpacesInsideArrayBrackets" : true,
 	"requireSpacesInsideObjectBrackets" : "all",
 	"disallowSpacesInsideParentheses" : true,

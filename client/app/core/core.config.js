@@ -10,7 +10,7 @@
                 .accentPalette("blue")
                 .warnPalette("pink");
 
-            // For all unmatched url, redirect to /
+            // For all unmatched url, redirect to /login
             $urlRouterProvider.otherwise("/login");
 
             $stateProvider
@@ -26,6 +26,7 @@
                 })
                 .state("profile", {
                     url: "/profile",
+                    authenticate: true,
                     views: {
                         "": {
                             templateUrl: "app/core/templates/profile.html",
