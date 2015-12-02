@@ -7,7 +7,6 @@
             .state("twitter", {
                 parent: "profile",
                 url: "/twitter",
-                authenticate: true,
                 views: {
                     "": {
                         templateUrl: "app/twitter/templates/twitter.html",

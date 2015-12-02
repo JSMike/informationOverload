@@ -26,7 +26,9 @@
                 })
                 .state("profile", {
                     url: "/profile",
-                    authenticate: true,
+                    data: {
+                        authenticate: true
+                    },
                     views: {
                         "": {
                             templateUrl: "app/core/templates/profile.html",

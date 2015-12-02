@@ -7,7 +7,6 @@
             .state("facebook", {
                 parent: "profile",
                 url: "/facebook",
-                authenticate: true,
                 views: {
                     "": {
                         templateUrl: "app/facebook/templates/facebook.html",

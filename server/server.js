@@ -32,7 +32,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 // Express Settings
 app.use(morgan(morganEnv)); // Sets logging level
 app.use(cookieParser()); // read cookies (required for authentication)
