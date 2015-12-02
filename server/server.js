@@ -3,6 +3,7 @@
 var path = require("path");
 var express = require("express");
 var morgan = require("morgan");
+var compression = require("compression");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
@@ -35,6 +36,7 @@ app.use(passport.session());
 
 // Express Settings
 app.use(morgan(morganEnv)); // Sets logging level
+app.use(compression()); // compress all requests
 app.use(cookieParser()); // read cookies (required for authentication)
 app.use(bodyParser.json()); // Parse post request as JSON
 app.use(bodyParser.json({ type: "application/vnd.api+json" })); // Use JSON API spec

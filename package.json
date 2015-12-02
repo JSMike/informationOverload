@@ -45,19 +45,20 @@
     "wiredep": "^3.0.0-beta"
   },
   "dependencies": {
-    "express" : "~4.13.3",
-    "mongoose" : "~4.2.5",
-    "passport" : "~0.3.2",
-    "passport-local" : "~1.0.0",
-    "passport-facebook" : "~2.0.0",
-    "passport-twitter" : "~1.0.3",
-    "passport-google-oauth" : "~0.2.0",
-    "bcrypt-nodejs" : "~0.0.3",
-    "morgan": "~1.6.1",
+    "bcrypt-nodejs": "~0.0.3",
     "body-parser": "~1.14.1",
+    "compression": "^1.6.0",
     "cookie-parser": "~1.4.0",
+    "express": "~4.13.3",
+    "express-session": "~1.12.1",
     "method-override": "~2.3.5",
-    "express-session": "~1.12.1"
+    "mongoose": "~4.2.5",
+    "morgan": "~1.6.1",
+    "passport": "~0.3.2",
+    "passport-facebook": "~2.0.0",
+    "passport-google-oauth": "~0.2.0",
+    "passport-local": "~1.0.0",
+    "passport-twitter": "~1.0.3"
   },
   "overrides": {
     "gulp-nodemon": {
