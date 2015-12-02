@@ -14,7 +14,7 @@
                 <input ng-model="vm.password" type="password" placeholder="Password" ng-required="true" flex-order="2">
             </md-input-container>
             <div layout="column" layout-fill>
-                <md-button class="md-raised md-primary"><ng-md-icon icon="login"></ng-md-icon> Log in</md-button>
+                <md-button class="md-raised md-primary" ng-click="vm.localLogin()"><ng-md-icon icon="login"></ng-md-icon> Log in</md-button>
             </div>
             <div>Or login with:</div>
             <div layout="row">

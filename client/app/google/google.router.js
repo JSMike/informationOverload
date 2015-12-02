@@ -7,7 +7,6 @@
             .state("google", {
                 parent: "profile",
                 url: "/google",
-                authenticate: true,
                 views: {
                     "": {
                         templateUrl: "app/google/templates/google.html",

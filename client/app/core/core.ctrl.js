@@ -7,8 +7,11 @@
 
     }]);
 
-    core.controller("core.login.ctrl", ["$scope", "$http", function ($scope, $http) {
+    core.controller("core.login.ctrl", ["$scope", "$http", "AuthService", function ($scope, $http, AuthService) {
         var vm = this;
+        vm.localLogin = function () {
+            AuthService.localLogin(vm.email, vm.password);
+        };
 
     }]);
 
