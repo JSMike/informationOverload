@@ -1,4 +1,4 @@
-(function (angular, undefined) {
+(function (angular, _, undefined) {
     "use strict";
     var core = angular.module("core", ["ui.router", "ngMaterial", "ngMdIcons", "ngStorage"]);
 
