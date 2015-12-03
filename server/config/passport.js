@@ -70,19 +70,17 @@ module.exports = function (passport) {
 
                             return done(null, newUser);
                         });
-                    }
-
-                    if (!user.validPassword(password)) {
-                        return done(null, false, "Oops! Wrong password.");
+                    } else if (user && !user.validPassword(password)) {
+                        return done(null, false, "Invalid Password!");
 
                     // all is well, return user
                     } else {
                         return done(null, user);
                     }
                 });
+            } else {
+                return done(null, req.user);
             }
-
-            return done(null, req.user);
         });
     }));
 

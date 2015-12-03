@@ -7,7 +7,7 @@ var User = require("./models/user");
 var routing = function (router, staticPath, passport) {
 
     router.post("/login", function (req, res, next) {
-        passport.authenticate("local", function (err, user, msg) {
+        passport.authenticate("local-login", function (err, user, msg) {
             if (err) {
                 return res.send({
                     "error": true,
@@ -17,12 +17,24 @@ var routing = function (router, staticPath, passport) {
             }
             if (!user) {
                 return res.send({
-                    "error": true,
+                    "fail": true,
                     "redirect": "login",
                     "message": msg
                 });
             }
-            return res.send(user);
+            req.login(user, function (e) {
+                if (e) {
+                    return res.send({
+                        "error": true,
+                        "redirect": "login",
+                        "message": _.get(e, "message", "Error!")
+                    });
+                }
+                return res.send({
+                    "user": user,
+                    "redirect": "local"
+                });
+            });
         })(req, res, next);
     });
 
@@ -34,18 +46,22 @@ var routing = function (router, staticPath, passport) {
     router.get("/delete", isLoggedIn, function (req, res) {
         if (req.user) {
             process.nextTick(function () {
-                User.delete(req.user, function (err, data) {
+                User.remove({ _id: req.user._id }, function (err, data) {
                     if (err) {
                         return res.send({
                             "error": true,
                             "message": err.message
                         });
                     }
-                    return res.send({ "redirect": "login" });
+                    req.logout();
+                    return res.send({
+                        "redirect": "login",
+                        "message": "User deleted successfully!"
+                    });
                 });
             });
-            req.logout();
-            res.send({ "redirect": "login" });
+        } else {
+            return res.send({ "redirect": "login" });
         }
     });
 

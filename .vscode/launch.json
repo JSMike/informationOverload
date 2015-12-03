@@ -1,0 +1,31 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug server.js",
+			"type": "node",
+			"request": "launch",
+			"program": "server/server.js",
+			"stopOnEntry": true,
+			"args": [],
+			"cwd": ".",
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"PORT": 80,
+                "NODE_ENV": "dev"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},
+		{
+			"name": "Attach",
+			"type": "node",
+			"request": "attach",
+			"port": 5858
+		}
+	]
+}
