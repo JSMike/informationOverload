@@ -142,7 +142,7 @@ module.exports = function (passport) {
                         return done(null, false, "That email is already taken.");
                         // Using "loginMessage instead of signupMessage because it"s used by /connect/local"
                     } else {
-                        var user = req.user;
+                        user = req.user;
                         user.local.email = email;
                         user.local.password = user.generateHash(password);
                         user.save(function (err) {
