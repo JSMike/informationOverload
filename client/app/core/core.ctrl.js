@@ -7,12 +7,17 @@
 
     }]);
 
-    core.controller("core.login.ctrl", ["$scope", "$http", "AuthService", function ($scope, $http, AuthService) {
+    core.controller("core.login.ctrl", ["$scope", "$http", "AuthService", function ($scope, $http, Auth) {
         var vm = this;
         vm.localLogin = function () {
-            AuthService.localLogin(vm.email, vm.password, function (msg) { $scope.message = msg; });
+            $scope.message = "";
+            Auth.localLogin(vm.email, vm.password, function (msg) { $scope.message = msg; });
         };
 
+        vm.loginWith = function (provider) {
+            $scope.message = "";
+            Auth.loginWith(provider, function (msg) { $scope.message = msg; });
+        };
     }]);
 
     core.controller("core.sidenav.ctrl", ["$scope", "$rootScope", "$http", "$state", "$mdSidenav", "AuthService",
@@ -50,6 +55,9 @@
 
         vm.selectId = function (idx) {
             $scope.selected = vm.ids[idx].state;
+            if (!$mdSidenav("left").isLockedOpen()) {
+                $mdSidenav("left").close();
+            }
         };
 
         vm.delete = function () {

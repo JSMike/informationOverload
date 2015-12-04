@@ -5,6 +5,7 @@ var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require("passport-facebook").Strategy;
 var TwitterStrategy = require("passport-twitter").Strategy;
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+var _ = require("lodash");
 
 // load up the user model
 var User = require("./models/user");
@@ -191,8 +192,8 @@ module.exports = function (passport) {
                         // if there is a user id already but no token (user was linked at one point and then removed)
                         if (!user.facebook.token) {
                             user.facebook.token = token;
-                            user.facebook.name = profile.name.givenName + " " + profile.name.familyName;
-                            user.facebook.email = (profile.emails[0].value || "").toLowerCase();
+                            user.facebook.name = _.get(profile, "displayName", "No Name");
+                            user.facebook.email = _.get(profile, "emails[0].value", "").toLowerCase();
 
                             user.save(function (err) {
                                 if (err) {
@@ -209,8 +210,8 @@ module.exports = function (passport) {
 
                         newUser.facebook.id = profile.id;
                         newUser.facebook.token = token;
-                        newUser.facebook.name = profile.name.givenName + " " + profile.name.familyName;
-                        newUser.facebook.email = (profile.emails[0].value || "").toLowerCase();
+                        newUser.facebook.name = _.get(profile, "displayName", "No Name");
+                        newUser.facebook.email = _.get(profile, "emails[0].value", "").toLowerCase();
 
                         newUser.save(function (err) {
                             if (err) {
@@ -227,8 +228,8 @@ module.exports = function (passport) {
 
                 user.facebook.id = profile.id;
                 user.facebook.token = token;
-                user.facebook.name = profile.name.givenName + " " + profile.name.familyName;
-                user.facebook.email = (profile.emails[0].value || "").toLowerCase();
+                user.facebook.name = _.get(profile, "displayName", "No Name");
+                user.facebook.email = _.get(profile, "emails[0].value", "").toLowerCase();
 
                 user.save(function (err) {
                     if (err) {

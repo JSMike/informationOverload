@@ -27,7 +27,7 @@ mongoose.connect(mongoCfg.url);
 require("./config/passport")(passport);
 app.use(session({
     secret: "thecakeisalie",
-    resave: true,
+    resave: false,
     saveUninitialized: true
 }));
 app.use(passport.initialize());

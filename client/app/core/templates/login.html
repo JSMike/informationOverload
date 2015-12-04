@@ -21,16 +21,16 @@
             </form>
             <div>Or login with:</div>
             <div layout="row">
-                <md-button ng-click="twitter()" class="md-fab twitter-bg" layout="column" layout-align="start center" aria-label="Share on Twitter">
+                <md-button ng-click="vm.loginWith('Twitter')" class="md-fab twitter-bg" layout="column" layout-align="start center" aria-label="Share on Twitter">
                     <ng-md-icon icon="twitter"></ng-md-icon>
                 </md-button>
-                <md-button ng-click="facebook()" class="md-fab facebook-bg" layout="column" layout-align="start center" aria-label="Share on Facebook">
+                <md-button ng-click="vm.loginWith('Facebook')" class="md-fab facebook-bg" layout="column" layout-align="start center" aria-label="Share on Facebook">
                     <ng-md-icon icon="facebook"></ng-md-icon>
                 </md-button>
-                <md-button ng-click="linkedin()" class="md-fab linkedin-bg" layout="column" layout-align="start center" aria-label="Share on LinkedIn">
+                <md-button ng-click="vm.loginWith('LinkedIn')" class="md-fab linkedin-bg" layout="column" layout-align="start center" aria-label="Share on LinkedIn">
                     <ng-md-icon icon="linkedin"></ng-md-icon>
                 </md-button>
-                <md-button ng-click="googleplus()" class="md-fab googleplus-bg" layout="column" layout-align="start center" aria-label="Share on Google+">
+                <md-button ng-click="vm.loginWith('Google')" class="md-fab googleplus-bg" layout="column" layout-align="start center" aria-label="Share on Google+">
                     <ng-md-icon icon="google-plus"></ng-md-icon>
                 </md-button>
             </div>
