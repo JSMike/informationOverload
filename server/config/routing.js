@@ -215,6 +215,14 @@ var routing = function (router, staticPath, passport) {
             return res.json(response);
         });
     });
+
+    router.get("/", function (req, res) {
+        return res.sendFile(path.join(staticPath, "index.html"));
+    });
+
+    router.all("*", function (req, res) {
+        return res.redirect("/");
+    })
 };
 
 function isLoggedIn(req, res, next) {
