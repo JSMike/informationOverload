@@ -1,8 +1,18 @@
 <div id="local" layout="column" layout-padding flex>
     <section id="facebookInfo" class="userinfo" layout="column">
         <h3>Facebook Info</h3>
-        <div ng-if="vm.fb" class="facebookData" layout="column">
+        <div ng-if="vm.fb" class="fbData" layout="column">
             <div><span class="md-subhead">Name:&nbsp;</span><span ng-bind="vm.fb.name"></span></div>
+            <div><span class="md-subhead">Gender:&nbsp;</span><span ng-bind="vm.fb.gender"></span></div>
+            <div><span class="md-subhead">Age Range:&nbsp;</span><span ng-bind="vm.fb.age.min"></span>&nbsp;-&nbsp;<span ng-bind="vm.fb.age.max"></span></div>
+            <div><span class="md-subhead">E-mail:&nbsp;</span><span ng-bind="vm.fb.email"></span></div>
+            <div><span class="md-subhead">Locale:&nbsp;</span><span ng-bind="vm.fb.locale"></span></div>
+            <div><span class="md-subhead">Timezone:&nbsp;</span><span ng-bind="vm.fb.timezone"></span></div>
+            <div><span class="md-subhead">Facebook api id:&nbsp;</span><span ng-bind="vm.fb.id"></span></div>
+            <div><span class="md-subhead">Friend Count:&nbsp;</span><span ng-bind="vm.fb.friends"></span></div>
+            <div ng-if="vm.fb.url"><a ng-href="{{vm.fb.profile}}">Link to your profile</a></div>
+            <div><span class="md-subhead">Last Updated:&nbsp;</span><span ng-bind="vm.fb.updated.toLocaleString()"></span></div>
+            <div layout="row" layout-align="start start"><span class="md-subhead">Image:&nbsp;</span><img ng-src="https://graph.facebook.com/{{vm.fb.id}}/picture?type=large"/></div>
         </div>
         <div ng-if="message">
             <div><span class="md-subhead">Error:&nbsp;</span><span class="login-message" ng-bind="message"></span></div>
