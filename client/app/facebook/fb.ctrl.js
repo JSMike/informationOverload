@@ -6,7 +6,7 @@
         function ($scope, $http, $sessionStorage, Auth) {
         var vm = this;
         vm.fb = _.get($sessionStorage, "user.facebook");
-        if (_.has(vm, "fb.updated")) {
+        if (_.has(vm.fb, "updated")) {
             vm.fb.updated = new Date(vm.fb.updated);
         }
 

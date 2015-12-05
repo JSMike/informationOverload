@@ -1,7 +1,7 @@
 <div id="local" layout="column" layout-padding flex>
     <section id="facebookInfo" class="userinfo" layout="column">
         <h3>Facebook Info</h3>
-        <div ng-if="vm.fb" class="fbData" layout="column">
+        <div ng-if="vm.fb.id" class="fbData" layout="column">
             <div><span class="md-subhead">Name:&nbsp;</span><span ng-bind="vm.fb.name"></span></div>
             <div><span class="md-subhead">Gender:&nbsp;</span><span ng-bind="vm.fb.gender"></span></div>
             <div><span class="md-subhead">Age Range:&nbsp;</span><span ng-bind="vm.fb.age.min"></span>&nbsp;-&nbsp;<span ng-bind="vm.fb.age.max"></span></div>
@@ -17,7 +17,7 @@
         <div ng-if="message">
             <div><span class="md-subhead">Error:&nbsp;</span><span class="login-message" ng-bind="message"></span></div>
         </div>
-        <div ng-if="!vm.fb" class="facebookData" layout="row">
+        <div ng-if="!vm.fb.id" class="facebookData" layout="row">
             <div><md-button class="md-raised md-primary facebook-bg" ng-click="vm.facebookLogin()">Login with <md-icon ng-md-icon icon="facebook-box"></md-icon></md-button></div>
         </div>
     </section>

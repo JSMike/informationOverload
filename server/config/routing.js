@@ -222,7 +222,7 @@ var routing = function (router, staticPath, passport) {
 
     router.all("*", function (req, res) {
         return res.redirect("/");
-    })
+    });
 };
 
 function isLoggedIn(req, res, next) {

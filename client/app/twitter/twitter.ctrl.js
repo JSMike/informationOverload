@@ -7,10 +7,10 @@
         var vm = this;
         vm.twitter = _.get($sessionStorage, "user.twitter");
 
-        if (_.has(twitter, "created")) {
+        if (_.has(vm.twitter, "created")) {
             twitter.created = new Date(data.created);
         }
-        if (_.has(twitter, "status.created")) {
+        if (_.has(vm.twitter, "status.created")) {
             twitter.status.created = new Date(data.status.created);
         }
 
