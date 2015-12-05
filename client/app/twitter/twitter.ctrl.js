@@ -6,6 +6,14 @@
         function ($scope, $http, $sessionStorage, Auth) {
         var vm = this;
         vm.twitter = _.get($sessionStorage, "user.twitter");
+
+        if (_.has(twitter, "created")) {
+            twitter.created = new Date(data.created);
+        }
+        if (_.has(twitter, "status.created")) {
+            twitter.status.created = new Date(data.status.created);
+        }
+
         vm.twitterLogin = function () {
             $scope.message = "";
             Auth.loginWith("Twitter", function (msg) { $scope.message = msg; });

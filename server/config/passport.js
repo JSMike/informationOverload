@@ -3,7 +3,7 @@
 // load all the things we need
 var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require("passport-facebook").Strategy;
-var TwitterStrategy = require('passport-twitter').Strategy;
+var TwitterStrategy = require("passport-twitter").Strategy;
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 var _ = require("lodash");
 
@@ -118,6 +118,20 @@ module.exports = function (passport) {
         clientID: configAuth.facebookAuth.clientID,
         clientSecret: configAuth.facebookAuth.clientSecret,
         callbackURL: configAuth.facebookAuth.callbackURL,
+        profileFields: [
+            "id",
+            "name",
+            "displayName",
+            "gender",
+            "profileUrl",
+            "emails",
+            "photos",
+            "friends",
+            "age_range",
+            "locale",
+            "timezone",
+            "updated_time"
+        ],
         passReqToCallback: true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
 
     },
@@ -135,8 +149,17 @@ module.exports = function (passport) {
                     }
                     if (user) {
                         user.facebook.token = token;
-                        user.facebook.name = _.get(profile, "displayName", "No Name");
-                        user.facebook.email = _.get(profile, "emails[0].value", "").toLowerCase();
+                        user.facebook.id = _.get(profile, "id");
+                        user.facebook.name = _.get(profile, "displayName");
+                        user.facebook.email = _.get(profile, "_json.email");
+                        user.facebook.age = _.get(profile, "_json.age_range");
+                        user.facebook.friends = _.get(profile, "_json.friends.summary.total_count");
+                        user.facebook.gender = _.get(profile, "_json.gender");
+                        user.facebook.photos = _.get(profile, "photos");
+                        user.facebook.profile = _.get(profile, "profileUrl");
+                        user.facebook.timezone = _.get(profile, "_json.timezone");
+                        user.facebook.locale = _.get(profile, "_json.locale");
+                        user.facebook.updated = new Date(_.get(profile, "_json.updated_time"));
 
                         user.save(function (err) {
                             if (err) {
@@ -148,10 +171,18 @@ module.exports = function (passport) {
                         // if there is no user, create them
                         var newUser = new User();
 
-                        newUser.facebook.id = profile.id;
                         newUser.facebook.token = token;
-                        newUser.facebook.name = _.get(profile, "displayName", "No Name");
-                        newUser.facebook.email = _.get(profile, "emails[0].value", "").toLowerCase();
+                        newUser.facebook.id = _.get(profile, "id");
+                        newUser.facebook.name = _.get(profile, "displayName");
+                        newUser.facebook.email = _.get(profile, "_json.email");
+                        newUser.facebook.age = _.get(profile, "_json.age_range");
+                        newUser.facebook.friends = _.get(profile, "_json.friends.summary.total_count");
+                        newUser.facebook.gender = _.get(profile, "_json.gender");
+                        newUser.facebook.photos = _.get(profile, "photos");
+                        newUser.facebook.profile = _.get(profile, "profileUrl");
+                        newUser.facebook.timezone = _.get(profile, "_json.timezone");
+                        newUser.facebook.locale = _.get(profile, "_json.locale");
+                        newUser.facebook.updated = new Date(_.get(profile, "_json.updated_time"));
 
                         newUser.save(function (err) {
                             if (err) {
@@ -166,10 +197,18 @@ module.exports = function (passport) {
                 // user already exists and is logged in, we have to link accounts
                 var user = req.user; // pull the user out of the session
 
-                user.facebook.id = profile.id;
                 user.facebook.token = token;
-                user.facebook.name = _.get(profile, "displayName", "No Name");
-                user.facebook.email = _.get(profile, "emails[0].value", "").toLowerCase();
+                user.facebook.id = _.get(profile, "id");
+                user.facebook.name = _.get(profile, "displayName");
+                user.facebook.email = _.get(profile, "_json.email");
+                user.facebook.age = _.get(profile, "_json.age_range");
+                user.facebook.friends = _.get(profile, "_json.friends.summary.total_count");
+                user.facebook.gender = _.get(profile, "_json.gender");
+                user.facebook.photos = _.get(profile, "photos");
+                user.facebook.profile = _.get(profile, "profileUrl");
+                user.facebook.timezone = _.get(profile, "_json.timezone");
+                user.facebook.locale = _.get(profile, "_json.locale");
+                user.facebook.updated = new Date(_.get(profile, "_json.updated_time"));
 
                 user.save(function (err) {
                     if (err) {
@@ -213,7 +252,7 @@ module.exports = function (passport) {
                         user.twitter.token = token;
                         user.twitter.username = _.get(profile, "username");
                         user.twitter.name = _.get(profile, "displayName");
-                        user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                        user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal", "");
                         user.twitter.created = new Date (_.get(profile, "_json.created_at"));
                         user.twitter.description = _.get(profile, "_json.description");
                         user.twitter.followers = _.get(profile, "_json.followers_count");
@@ -243,7 +282,7 @@ module.exports = function (passport) {
                         newUser.twitter.token = token;
                         newUser.twitter.username = _.get(profile, "username");
                         newUser.twitter.name = _.get(profile, "displayName");
-                        newUser.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                        newUser.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal", "");
                         newUser.twitter.created = new Date (_.get(profile, "_json.created_at"));
                         newUser.twitter.description = _.get(profile, "_json.description");
                         newUser.twitter.followers = _.get(profile, "_json.followers_count");
@@ -257,7 +296,6 @@ module.exports = function (passport) {
                         };
                         newUser.twitter.tweets = _.get(profile, "_json.statuses_count");
                         newUser.twitter.url = _.get(profile, "_json.url");
-
 
                         newUser.save(function (err) {
                             if (err) {
@@ -277,7 +315,7 @@ module.exports = function (passport) {
                 user.twitter.token = token;
                 user.twitter.username = _.get(profile, "username");
                 user.twitter.name = _.get(profile, "displayName");
-                user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal", "");
                 user.twitter.created = new Date (_.get(profile, "_json.created_at"));
                 user.twitter.description = _.get(profile, "_json.description");
                 user.twitter.followers = _.get(profile, "_json.followers_count");
@@ -369,7 +407,6 @@ module.exports = function (passport) {
             } else {
                 // user already exists and is logged in, we have to link accounts
                 var user = req.user; // pull the user out of the session
-
 
                 user.google.id = _.get(profile, "id");
                 user.google.token = token;

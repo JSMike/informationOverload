@@ -172,7 +172,7 @@ var routing = function (router, staticPath, passport) {
 
     // send to google to do the authentication
     router.get("/auth/google", passport.authenticate("google", {
-        scope: ['https://www.googleapis.com/auth/plus.login']
+        scope: ["https://www.googleapis.com/auth/plus.login"]
     }));
 
     // the callback after google has authenticated the user
