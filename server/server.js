@@ -15,7 +15,7 @@ var router = express.Router();
 var host = process.env.IP || "127.0.0.1";
 var port = process.env.PORT || 80;
 var env = process.env.NODE_ENV || "dev";
-var staticPath = path.join(process.cwd(), (env === "dev" ? "client" : "build"));
+var staticPath = path.join(__dirname, "..", (env === "dev" ? "client" : "build"));
 // var morganEnv = env === "dev" ? "dev" : "combined";
 var morganEnv = "dev";
 
