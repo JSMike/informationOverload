@@ -20,7 +20,7 @@ var staticPath = path.join(process.cwd(), (env === "dev" ? "client" : "build"));
 var morganEnv = "dev";
 
 // Mongoose Settings
-var mongoCfg = require("./config/mongo")(host);
+var mongoCfg = require("./config/mongo")("127.0.0.1");
 mongoose.connect(mongoCfg.url);
 
 // Passport Settings

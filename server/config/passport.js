@@ -3,7 +3,7 @@
 // load all the things we need
 var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require("passport-facebook").Strategy;
-var TwitterStrategy = require('passport-twitter').Strategy;
+var TwitterStrategy = require("passport-twitter").Strategy;
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 var _ = require("lodash");
 
@@ -213,7 +213,7 @@ module.exports = function (passport) {
                         user.twitter.token = token;
                         user.twitter.username = _.get(profile, "username");
                         user.twitter.name = _.get(profile, "displayName");
-                        user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                        user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal", "");
                         user.twitter.created = new Date (_.get(profile, "_json.created_at"));
                         user.twitter.description = _.get(profile, "_json.description");
                         user.twitter.followers = _.get(profile, "_json.followers_count");
@@ -243,7 +243,7 @@ module.exports = function (passport) {
                         newUser.twitter.token = token;
                         newUser.twitter.username = _.get(profile, "username");
                         newUser.twitter.name = _.get(profile, "displayName");
-                        newUser.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                        newUser.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal", "");
                         newUser.twitter.created = new Date (_.get(profile, "_json.created_at"));
                         newUser.twitter.description = _.get(profile, "_json.description");
                         newUser.twitter.followers = _.get(profile, "_json.followers_count");
@@ -257,7 +257,6 @@ module.exports = function (passport) {
                         };
                         newUser.twitter.tweets = _.get(profile, "_json.statuses_count");
                         newUser.twitter.url = _.get(profile, "_json.url");
-
 
                         newUser.save(function (err) {
                             if (err) {
@@ -277,7 +276,7 @@ module.exports = function (passport) {
                 user.twitter.token = token;
                 user.twitter.username = _.get(profile, "username");
                 user.twitter.name = _.get(profile, "displayName");
-                user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal", "");
                 user.twitter.created = new Date (_.get(profile, "_json.created_at"));
                 user.twitter.description = _.get(profile, "_json.description");
                 user.twitter.followers = _.get(profile, "_json.followers_count");
@@ -369,7 +368,6 @@ module.exports = function (passport) {
             } else {
                 // user already exists and is logged in, we have to link accounts
                 var user = req.user; // pull the user out of the session
-
 
                 user.google.id = _.get(profile, "id");
                 user.google.token = token;
