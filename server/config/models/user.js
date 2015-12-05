@@ -19,13 +19,33 @@ var userSchema = mongoose.Schema({
     twitter: {
         id: String,
         token: String,
-        displayName: String,
-        username: String
+        username: String,
+        name: String,
+        image: String,
+        created: Date,
+        description: String,
+        followers: Number,
+        friends: Number,
+        location: String,
+        language: String,
+        status: {
+            created: Date,
+            text: String,
+            retweets: Number
+        },
+        tweets: Number,
+        url: String
     },
     google: {
         id: String,
         token: String,
-        email: String,
+        image: String,
+        gender: String,
+        age: {
+            min: Number,
+            max: Number
+        },
+        language: String,
         name: String
     }
 });

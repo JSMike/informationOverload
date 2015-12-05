@@ -1,6 +1,33 @@
 <div id="local" layout="column" layout-padding flex>
-    <section id="twitterInfo" layout="column">
+    <section id="twitterInfo" class="userinfo" layout="column">
         <h3>Twitter Info</h3>
-
+        <div ng-if="vm.twitter" class="twitterData" layout="column">
+            <div><span class="md-subhead">Name:&nbsp;</span><span ng-bind="vm.twitter.name"></span></div>
+            <div><span class="md-subhead">Username:&nbsp;</span><span ng-bind="vm.twitter.username"></span></div>
+            <div><span class="md-subhead">Create Date:&nbsp;</span><span ng-bind="vm.twitter.created.toLocaleString()"></span></div>
+            <div ng-if="vm.twitter.description"><span class="md-subhead">Description:&nbsp;</span><span ng-bind="vm.twitter.description"></span></div>
+            <div ng-if="vm.twitter.location"><span class="md-subhead">Location:&nbsp;</span><span ng-bind="vm.twitter.location"></span></div>
+            <div><span class="md-subhead">Language:&nbsp;</span><span ng-bind="vm.twitter.language"></span></div>
+            <div><span class="md-subhead">Twitter api id:&nbsp;</span><span ng-bind="vm.twitter.id"></span></div>
+            <div><span class="md-subhead">Following:&nbsp;</span><span ng-bind="vm.twitter.friends"></span></div>
+            <div><span class="md-subhead">Followers:&nbsp;</span><span ng-bind="vm.twitter.followers"></span></div>
+            <div><span class="md-subhead">Tweets:&nbsp;</span><span ng-bind="vm.twitter.tweets"></span></div>
+            <div ng-if="vm.twitter.url"><a ng-href="{{vm.twitter.url}}">Link to your homepage</a></div>
+            <div layout="row" layout-align="start start"><span class="md-subhead">Image:&nbsp;</span><img ng-src="{{vm.twitter.image}}"/></div>
+        </div>
+        <div ng-if="message">
+            <div><span class="md-subhead">Error:&nbsp;</span><span class="login-message" ng-bind="message"></span></div>
+        </div>
+        <div ng-if="!vm.twitter" class="twitterData" layout="row">
+            <div><md-button class="md-raised md-primary twitter-bg" ng-click="vm.twitterLogin()">Login with <md-icon ng-md-icon icon="twitter"></md-icon></md-button></div>
+        </div>
+    </section>
+    <section ng-if="vm.twitter.status">
+        <h3>Latest Tweet</h3>
+        <div ng-if="vm.twitter" class="twitterData" layout="column">
+            <div><span class="md-subhead">Tweet:&nbsp;</span><span ng-bind="vm.twitter.status.text"></span></div>
+            <div><span class="md-subhead">Create Date:&nbsp;</span><span ng-bind="vm.twitter.status.created.toLocaleString()"></span></div>
+            <div><span class="md-subhead">Retweets:&nbsp;</span><span ng-bind="vm.twitter.retweets"></span></div>
+        </div>
     </section>
 </div>

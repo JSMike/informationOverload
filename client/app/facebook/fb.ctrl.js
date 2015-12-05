@@ -7,8 +7,9 @@
         var vm = this;
         vm.fb = _.get($sessionStorage, "user.facebook");
         vm.facebookLogin = function () {
+            $scope.message = "";
             Auth.loginWith("Facebook", function (msg) { $scope.message = msg; });
-        }
+        };
         $scope.$watch(function () {
             return _.get($sessionStorage, "user.facebook");
         }, function (data) {

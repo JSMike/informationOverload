@@ -24,6 +24,7 @@ body {
 
 .hgroup {
 	margin: 3em 0 1em 0;
+    text-align: center;
 }
 
 h1, h3 {
@@ -194,3 +195,26 @@ span.md-subhead {
     text-align: center;
     color: @accentColor;
 }
+
+.userinfo {
+    .md-button:not([disabled]).md-primary.md-raised {
+        margin: 0;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .md-button:not([disabled]).md-primary.md-raised:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .md-button:not([disabled]).md-primary.md-raised.twitter-bg:hover { background-color: @twitter;}
+    .md-button:not([disabled]).md-primary.md-raised.facebook-bg:hover { background-color: @facebook; }
+    .md-button:not([disabled]).md-primary.md-raised.googleplus-bg:hover { background-color: @googleplus; }
+    .md-button:not([disabled]).md-primary.md-raised.linkedin-bg:hover { background-color: @linkedin; }
+
+    .md-button:not([disabled]).md-primary.md-raised.twitter-bg.md-focused { background-color: @twitter;}
+    .md-button:not([disabled]).md-primary.md-raised.facebook-bg.md-focused { background-color: @facebook; }
+    .md-button:not([disabled]).md-primary.md-raised.googleplus-bg.md-focused { background-color: @googleplus; }
+    .md-button:not([disabled]).md-primary.md-raised.linkedin-bg.md-focused { background-color: @linkedin; }
+}
+

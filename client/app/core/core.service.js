@@ -17,7 +17,6 @@
                             $state.go(_.get(res, "data.redirect", "login"));
                             $mdToast.showSimple(_.get(res, "data.message", "An error occured! (1)"));
                         } else if (_.has(res, "data.fail")) {
-                            $state.go(_.get(res, "data.redirect", "login"));
                             return cb(_.get(res, "data.message", "Failed to log in!"));
                         } else if (!_.has(res, "data.user")) {
                             $state.go(_.get(res, "data.redirect", "login"));

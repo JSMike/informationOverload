@@ -3,7 +3,7 @@
 // load all the things we need
 var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require("passport-facebook").Strategy;
-var TwitterStrategy = require("passport-twitter").Strategy;
+var TwitterStrategy = require('passport-twitter').Strategy;
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 var _ = require("lodash");
 
@@ -79,58 +79,6 @@ module.exports = function (passport) {
                         return done(null, user);
                     }
                 });
-            } else {
-                return done(null, req.user);
-            }
-        });
-    }));
-
-    // =========================================================================
-    // LOCAL SIGNUP ============================================================
-    // =========================================================================
-    passport.use("add-local", new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
-        usernameField: "email",
-        passwordField: "password",
-        passReqToCallback: true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
-    },
-    function (req, email, password, done) {
-        if (email) {
-            email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
-        }
-
-        // asynchronous
-        process.nextTick(function () {
-            // if the user is not already logged in:
-            if (!req.user) {
-                User.findOne({ "local.email": email }, function (err, user) {
-                    // if there are any errors, return the error
-                    if (err) {
-                        return done(err);
-                    }
-
-                    // check to see if theres already a user with that email
-                    if (user) {
-                        return done(null, false, "That email is already taken.");
-                    } else {
-
-                        // create the user
-                        var newUser = new User();
-
-                        newUser.local.email = email;
-                        newUser.local.password = newUser.generateHash(password);
-
-                        newUser.save(function (err) {
-                            if (err) {
-                                return done(err);
-                            }
-
-                            return done(null, newUser);
-                        });
-                    }
-
-                });
-            // if the user is logged in but has no local account...
             } else if (!req.user.local.email) {
                 // ...presumably they"re trying to connect a local account
                 // BUT let"s check if the email used to connect a local account is being used by another user
@@ -159,9 +107,7 @@ module.exports = function (passport) {
                 // user is logged in and already has a local account. Ignore signup. (You should log out before trying to create a new account, user!)
                 return done(null, req.user);
             }
-
         });
-
     }));
 
     // =========================================================================
@@ -188,22 +134,16 @@ module.exports = function (passport) {
                         return done(err);
                     }
                     if (user) {
+                        user.facebook.token = token;
+                        user.facebook.name = _.get(profile, "displayName", "No Name");
+                        user.facebook.email = _.get(profile, "emails[0].value", "").toLowerCase();
 
-                        // if there is a user id already but no token (user was linked at one point and then removed)
-                        if (!user.facebook.token) {
-                            user.facebook.token = token;
-                            user.facebook.name = _.get(profile, "displayName", "No Name");
-                            user.facebook.email = _.get(profile, "emails[0].value", "").toLowerCase();
-
-                            user.save(function (err) {
-                                if (err) {
-                                    return done(err);
-                                }
-                                return done(null, user);
-                            });
-                        }
-
-                        return done(null, user); // user found, return that user
+                        user.save(function (err) {
+                            if (err) {
+                                return done(err);
+                            }
+                            return done(null, user);
+                        });
                     } else {
                         // if there is no user, create them
                         var newUser = new User();
@@ -269,30 +209,55 @@ module.exports = function (passport) {
                     }
 
                     if (user) {
-                        // if there is a user id already but no token (user was linked at one point and then removed)
-                        if (!user.twitter.token) {
-                            user.twitter.token = token;
-                            user.twitter.username = profile.username;
-                            user.twitter.displayName = profile.displayName;
+                        user.twitter.id = _.get(profile, "id");
+                        user.twitter.token = token;
+                        user.twitter.username = _.get(profile, "username");
+                        user.twitter.name = _.get(profile, "displayName");
+                        user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                        user.twitter.created = new Date (_.get(profile, "_json.created_at"));
+                        user.twitter.description = _.get(profile, "_json.description");
+                        user.twitter.followers = _.get(profile, "_json.followers_count");
+                        user.twitter.friends = _.get(profile, "_json.friends_count");
+                        user.twitter.location = _.get(profile, "_json.location");
+                        user.twitter.language = _.get(profile, "_json.lang");
+                        user.twitter.status = {
+                            created: _.get(profile, "_json.status.created_at"),
+                            text: _.get(profile, "_json.status.text"),
+                            retweets: _.get(profile, "_json.status.retweet_count")
+                        };
+                        user.twitter.tweets = _.get(profile, "_json.statuses_count");
+                        user.twitter.url = _.get(profile, "_json.url");
 
-                            user.save(function (err) {
-                                if (err) {
-                                    return done(err);
-                                }
+                        user.save(function (err) {
+                            if (err) {
+                                return done(err);
+                            }
 
-                                return done(null, user);
-                            });
-                        }
-
-                        return done(null, user); // user found, return that user
+                            return done(null, user);
+                        });
                     } else {
                         // if there is no user, create them
                         var newUser = new User();
 
-                        newUser.twitter.id = profile.id;
+                        newUser.twitter.id = _.get(profile, "id");
                         newUser.twitter.token = token;
-                        newUser.twitter.username = profile.username;
-                        newUser.twitter.displayName = profile.displayName;
+                        newUser.twitter.username = _.get(profile, "username");
+                        newUser.twitter.name = _.get(profile, "displayName");
+                        newUser.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                        newUser.twitter.created = new Date (_.get(profile, "_json.created_at"));
+                        newUser.twitter.description = _.get(profile, "_json.description");
+                        newUser.twitter.followers = _.get(profile, "_json.followers_count");
+                        newUser.twitter.friends = _.get(profile, "_json.friends_count");
+                        newUser.twitter.location = _.get(profile, "_json.location");
+                        newUser.twitter.language = _.get(profile, "_json.lang");
+                        newUser.twitter.status = {
+                            created: _.get(profile, "_json.status.created_at"),
+                            text: _.get(profile, "_json.status.text"),
+                            retweets: _.get(profile, "_json.status.retweet_count")
+                        };
+                        newUser.twitter.tweets = _.get(profile, "_json.statuses_count");
+                        newUser.twitter.url = _.get(profile, "_json.url");
+
 
                         newUser.save(function (err) {
                             if (err) {
@@ -308,10 +273,24 @@ module.exports = function (passport) {
                 // user already exists and is logged in, we have to link accounts
                 var user = req.user; // pull the user out of the session
 
-                user.twitter.id = profile.id;
+                user.twitter.id = _.get(profile, "id");
                 user.twitter.token = token;
-                user.twitter.username = profile.username;
-                user.twitter.displayName = profile.displayName;
+                user.twitter.username = _.get(profile, "username");
+                user.twitter.name = _.get(profile, "displayName");
+                user.twitter.image = _.get(profile, "_json.profile_image_url", "").replace("_normal","");
+                user.twitter.created = new Date (_.get(profile, "_json.created_at"));
+                user.twitter.description = _.get(profile, "_json.description");
+                user.twitter.followers = _.get(profile, "_json.followers_count");
+                user.twitter.friends = _.get(profile, "_json.friends_count");
+                user.twitter.location = _.get(profile, "_json.location");
+                user.twitter.language = _.get(profile, "_json.lang");
+                user.twitter.status = {
+                    created: _.get(profile, "_json.status.created_at"),
+                    text: _.get(profile, "_json.status.text"),
+                    retweets: _.get(profile, "_json.status.retweet_count")
+                };
+                user.twitter.tweets = _.get(profile, "_json.statuses_count");
+                user.twitter.url = _.get(profile, "_json.url");
 
                 user.save(function (err) {
                     if (err) {
@@ -351,30 +330,31 @@ module.exports = function (passport) {
                     }
 
                     if (user) {
+                        user.google.id = _.get(profile, "id");
+                        user.google.token = token;
+                        user.google.name = _.get(profile, "displayName", "");
+                        user.google.age = _.get(profile, "_json.ageRange");
+                        user.google.gender = _.get(profile, "_json.gender");
+                        user.google.image = _.get(profile, "_json.image.url", "").replace(/\?.*/, "");
+                        user.google.language = _.get(profile, "_json.language");
 
-                        // if there is a user id already but no token (user was linked at one point and then removed)
-                        if (!user.google.token) {
-                            user.google.token = token;
-                            user.google.name = profile.displayName;
-                            user.google.email = (profile.emails[0].value || "").toLowerCase(); // pull the first email
+                        user.save(function (err) {
+                            if (err) {
+                                return done(err);
+                            }
 
-                            user.save(function (err) {
-                                if (err) {
-                                    return done(err);
-                                }
-
-                                return done(null, user);
-                            });
-                        }
-
-                        return done(null, user);
+                            return done(null, user);
+                        });
                     } else {
                         var newUser = new User();
 
-                        newUser.google.id = profile.id;
+                        newUser.google.id = _.get(profile, "id");
                         newUser.google.token = token;
-                        newUser.google.name = profile.displayName;
-                        newUser.google.email = (profile.emails[0].value || "").toLowerCase(); // pull the first email
+                        newUser.google.name = _.get(profile, "displayName", "");
+                        newUser.google.age = _.get(profile, "_json.ageRange");
+                        newUser.google.gender = _.get(profile, "_json.gender");
+                        newUser.google.image = _.get(profile, "_json.image.url", "").replace(/\?.*/, "");
+                        newUser.google.language = _.get(profile, "_json.language");
 
                         newUser.save(function (err) {
                             if (err) {
@@ -390,10 +370,14 @@ module.exports = function (passport) {
                 // user already exists and is logged in, we have to link accounts
                 var user = req.user; // pull the user out of the session
 
-                user.google.id = profile.id;
+
+                user.google.id = _.get(profile, "id");
                 user.google.token = token;
-                user.google.name = profile.displayName;
-                user.google.email = (profile.emails[0].value || "").toLowerCase(); // pull the first email
+                user.google.name = _.get(profile, "displayName", "");
+                user.google.age = _.get(profile, "_json.ageRange");
+                user.google.gender = _.get(profile, "_json.gender");
+                user.google.image = _.get(profile, "_json.image.url", "").replace(/\?.*/, "");
+                user.google.language = _.get(profile, "_json.language");
 
                 user.save(function (err) {
                     if (err) {

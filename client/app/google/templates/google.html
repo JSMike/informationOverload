@@ -1,6 +1,19 @@
 <div id="local" layout="column" layout-padding flex>
-    <section id="googleInfo" layout="column">
+    <section id="googleInfo" class="userinfo" layout="column">
         <h3>Google Info</h3>
-
+        <div ng-if="vm.google" class="facebookData" layout="column">
+            <div><span class="md-subhead">Name:&nbsp;</span><span ng-bind="vm.google.name"></span></div>
+            <div><span class="md-subhead">Gender:&nbsp;</span><span ng-bind="vm.google.gender"></span></div>
+            <div><span class="md-subhead">Age Range:&nbsp;</span><span ng-bind="vm.google.age.min"></span>&nbsp;-&nbsp;<span ng-bind="vm.google.age.max"></span></div>
+            <div><span class="md-subhead">Language:&nbsp;</span><span ng-bind="vm.google.language"></span></div>
+            <div><span class="md-subhead">Google+ API User ID:&nbsp;</span><span ng-bind="vm.google.id"></span></div>
+            <div layout="row" layout-align="start start"><span class="md-subhead">Image:&nbsp;</span><img ng-src="{{vm.google.image}}"/></div>
+        </div>
+        <div ng-if="message">
+            <div><span class="md-subhead">Error:&nbsp;</span><span class="login-message" ng-bind="message"></span></div>
+        </div>
+        <div ng-if="!vm.google" class="facebookData" layout="row">
+            <div><md-button class="md-raised md-primary googleplus-bg" ng-click="vm.googleLogin()">Login with <md-icon ng-md-icon icon="google-plus-box"></md-icon></md-button></div>
+        </div>
     </section>
 </div>

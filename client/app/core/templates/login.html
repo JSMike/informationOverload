@@ -1,7 +1,7 @@
 <div layout="column" layout-align="start center" flex>
     <div class="hgroup" layout="column" layout-align="start center">
         <h1>Information Overload</h1>
-        <h3>See some of the information that you're freely passing around the web</h3>
+        <h3>See what you're sharing with developers just by logging in.</h3>
     </div>
     <div layout="row" layout-align="center center">
         <md-whiteframe class="md-whiteframe-z3" layout="column" layout-align="center center">
@@ -16,21 +16,18 @@
                     <input ng-model="vm.password" type="password" placeholder="Password" ng-required="true" flex-order="2">
                 </md-input-container>
                 <div layout="column" layout-fill>
-                    <md-button class="md-raised md-primary" type="submit"><ng-md-icon icon="login"></ng-md-icon> Sign up / Log in</md-button>
+                    <md-button class="md-raised md-primary" type="submit"><ng-md-icon icon="login"></ng-md-icon>&nbsp;Sign up / Log in</md-button>
                 </div>
             </form>
             <div>Or login with:</div>
             <div layout="row">
-                <md-button ng-click="vm.loginWith('Twitter')" class="md-fab twitter-bg" layout="column" layout-align="start center" aria-label="Share on Twitter">
+                <md-button ng-click="vm.loginWith('Twitter')" class="md-fab twitter-bg" layout="column" layout-align="start center" aria-label="Log in with Twitter">
                     <ng-md-icon icon="twitter"></ng-md-icon>
                 </md-button>
-                <md-button ng-click="vm.loginWith('Facebook')" class="md-fab facebook-bg" layout="column" layout-align="start center" aria-label="Share on Facebook">
+                <md-button ng-click="vm.loginWith('Facebook')" class="md-fab facebook-bg" layout="column" layout-align="start center" aria-label="Log in with Facebook">
                     <ng-md-icon icon="facebook"></ng-md-icon>
                 </md-button>
-                <md-button ng-click="vm.loginWith('LinkedIn')" class="md-fab linkedin-bg" layout="column" layout-align="start center" aria-label="Share on LinkedIn">
-                    <ng-md-icon icon="linkedin"></ng-md-icon>
-                </md-button>
-                <md-button ng-click="vm.loginWith('Google')" class="md-fab googleplus-bg" layout="column" layout-align="start center" aria-label="Share on Google+">
+                <md-button ng-click="vm.loginWith('Google')" class="md-fab googleplus-bg" layout="column" layout-align="start center" aria-label="Log in with Google+">
                     <ng-md-icon icon="google-plus"></ng-md-icon>
                 </md-button>
             </div>

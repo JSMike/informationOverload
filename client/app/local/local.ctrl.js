@@ -2,8 +2,8 @@
     "use strict";
     var local = angular.module("local");
 
-    local.controller("local.ctrl", ["$scope", "$http", "geolocation", "geocodef",
-        function ($scope, $http, geolocation, geocodef) {
+    local.controller("local.ctrl", ["$scope", "$http", "$sessionStorage", "geolocation", "geocodef", "AuthService",
+        function ($scope, $http, $sessionStorage, geolocation, geocodef, Auth) {
         var vm = this;
 
         $scope.showMap = false;
@@ -27,6 +27,18 @@
                 $scope.center.center = [$scope.center.latitude, $scope.center.longitude];
                 $scope.showMap = true;
             });
+
+        vm.local = _.get($sessionStorage, "user.local");
+        vm.localLogin = function () {
+            $scope.message = "";
+            Auth.localLogin(vm.email, vm.password, function (msg) { $scope.message = msg; });
+        };
+
+        $scope.$watch(function () {
+            return _.get($sessionStorage, "user.local");
+        }, function (data) {
+            vm.local = data;
+        });
 
         geolocation
             .getLocation()

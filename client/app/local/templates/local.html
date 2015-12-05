@@ -1,4 +1,29 @@
 <div id="local" layout="column" layout-padding flex>
+    <section id="localLogin" layout="column">
+        <h3>Local Login Info</h3>
+        <div ng-if="message">
+            <div><span class="md-subhead">Error:&nbsp;</span><span class="login-message" ng-bind="message"></span></div>
+        </div>
+        <div ng-if="!vm.local">
+            <form ng-submit="vm.localLogin()">
+                <md-input-container layout="row">
+                    <md-icon ng-md-icon icon="email" flex-order="1"></md-icon>
+                    <input ng-model="vm.email" type="email" placeholder="Email" ng-required="true" flex-order="2">
+                </md-input-container>
+                <md-input-container layout="row">
+                    <md-icon ng-md-icon icon="lock" flex-order="1"></md-icon>
+                    <input ng-model="vm.password" type="password" placeholder="Password" ng-required="true" flex-order="2">
+                </md-input-container>
+                <div layout="column" layout-fill>
+                    <md-button class="md-raised md-primary" type="submit"><ng-md-icon icon="login"></ng-md-icon>&nbsp;Sign up</md-button>
+                </div>
+            </form>
+        </div>
+        <div ng-if="vm.local" class="localLoginData" layout="column">
+            <div><span class="md-subhead">E-mail:&nbsp;</span><span ng-bind="vm.local.email"></span></div>
+            <div><span class="md-subhead">Password (Encrypted with&nbsp;<a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt</a>):</span>&nbsp;<span ng-bind="vm.local.password"></span></div>
+        </div>
+    </section>
     <section id="location" layout="column">
         <h3>Location from IP Address</h3>
         <div class="ipLocData" layout="column">
